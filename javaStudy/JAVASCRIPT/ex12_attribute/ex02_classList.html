@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 속성 다루기</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+            padding: 40px;
+            margin: 20px;
+        }
+        .small_box {
+            border: 1px dotted greenyellow;
+            padding: 40px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h3>클래스 속성 추가, 삭제, 유무</h3>
+    <hr>
+    <div class="class_box">
+        <button id="add">Class 추가</button>
+        <button id="remove">Class 삭제</button>
+        <button id="toggle">Class 토글</button>
+
+        <div id="box1" class="red blue">자식박스01</div>
+        <div id="box2" class="blue red">자식박스02</div>
+    </div>
+
+    <script>
+        const addBtn = document.querySelector("#add")
+        const removeBtn = document.querySelector("#remove")
+        const toggleBtn = document.querySelector("#toggle")
+        // console.log(toggleBtn)
+        // console.log(addBtn, removeBtn)
+
+        const buttons = document.querySelectorAll(".class_box button")
+        console.log(buttons)
+
+        // toggleBtn.addEventListener("click", () => {
+        //     let c1 = document.querySelector(".class_box")
+        //     c1.classList.toggle("box")
+
+        //     document.querySelector("#box1").classList.toggle("small_box")
+        //     document.querySelector("#box2").classList.toggle("small_box")
+        // })
+        // addBtn.addEventListener("click",() => {
+        //     // console.log("add")
+        //     let c1 = document.querySelector(".class_box")
+        //     c1.classList.add("box")
+            
+        //     document.querySelector("#box1").classList.add("small_box")
+        //     document.querySelector("#box2").classList.add("small_box")
+        // })
+        // removeBtn.addEventListener("click",() => {
+        //     // console.log("remove")
+        //     let c1 = document.querySelector(".class_box")
+        //     c1.classList.remove("box")
+
+        //     document.querySelector("#box1").classList.remove("small_box")
+        //     document.querySelector("#box2").classList.remove("small_box")
+        // })
+
+        buttons.forEach((button) => {
+            // console.log(button.getAttribute("id"))
+            button.addEventListener("click", () => {
+                let gubun = button.getAttribute("id")
+                if (gubun == "add") {
+                    addClassFun()
+                } else if (gubun === "remove") {
+                    removeClassFun()
+                } else {    
+                    toggleClassFun()
+                }
+            })
+        })
+        let c1 = document.querySelector(".class_box")
+        let c2 = document.querySelector("#box1")
+        let c3 = document.querySelector("#box2")
+
+        function addClassFun() {
+            console.log("add func")
+
+            c1.classList.add("box")
+            c2.classList.add("small_box")
+            c3.classList.add("small_box")
+        }
+        function removeClassFun() {
+            console.log("remove func")
+            
+            c1.classList.remove("box")
+            c2.classList.remove("small_box")
+            c3.classList.remove("small_box")
+        }
+        function toggleClassFun() {
+            console.log("toggle func")
+            
+            c1.classList.toggle("box")
+            c2.classList.toggle("small_box")
+            c3.classList.toggle("small_box")
+        }
+
+        addBtn.addEventListener('click',()=> {
+      //console.log('add')
+      let c1 = document.querySelector('.class_box')
+      c1.classList.add('box')
+
+      document.querySelector('#box1').classList.add('small_box')
+      document.querySelector('#box2').classList.add('small_box')
+
+    })
+    //     removeBtn.addEventListener('click',()=> {
+    //     //console.log('remove')
+    //     let c1 = document.querySelector('.class_box')
+    //     c1.classList.remove('box')
+
+    //     document.querySelector('#box1').classList.remove('small_box')
+    //     document.querySelector('#box2').classList.remove('small_box')
+    //     })
+    //     toggleBtn.addEventListener('click',()=>{
+    //   let c1 = document.querySelector('.class_box')
+    //   c1.classList.toggle('box')
+
+    //   document.querySelector('#box1').classList.toggle('small_box')
+    //   document.querySelector('#box2').classList.toggle('small_box')      
+    // })
+
+        const classBox = document.querySelector(".class_box")
+        const redBox = document.querySelector("#box1")
+        const blueBox = document.querySelector("#box2")
+
+        // console.log("class 속성값")
+        // console.log(
+        //     classBox.getAttribute('class'),
+        //     redBox.getAttribute('class'),
+        //     blueBox.getAttribute('class')
+        // )
+
+        // console.log("class 속성 추가")
+        classBox.classList.add("blue", "red")
+        redBox.classList.remove("red", "blue")
+
+        // contains : 있는지 없는지 판별
+        // console.log(blueBox.classList.contains("red")) 
+        // console.log(blueBox.classList.contains("cyan")) 
+        
+    </script>
+</body>
+</html>

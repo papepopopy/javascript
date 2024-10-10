@@ -1,0 +1,25 @@
+package chap13;
+
+import java.time.LocalDateTime;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+public class SteamRange {
+
+	public static void main(String[] args) {
+		List<Board> boardList = new ArrayList<board>();
+	}
+
+}
+
+@Data
+@Getter
+@Setter
+class Board {
+	int no;
+	String title;
+	String user;
+	LocalDateTime createdate;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 추가 / 삽입</title>
+    <style>
+        #name {
+            padding: 10px 5px;
+            font-size: 16px;
+            border-radius: 0;
+            border: solid 1px #ccc;
+        }
+        #add {
+            padding: 8px 10px;
+            font-size: 16px;
+            border-radius: 0;
+            border: solid 1px #ccc;
+            background-color: #2f2feb;
+            color: #fff;
+        }
+        #remove {
+            padding: 8px 10px;
+            font-size: 16px;
+            border-radius: 0;
+            border: solid 1px #ccc;
+            background-color: #eb2f3f;
+            color: #fff;
+        }
+        ul, li {
+            list-style: none;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>부모노드에 자식요소 추가하기</h3>
+    <hr>
+    <div class="form">
+        <label for=""><h2>항목 내용</h2>
+            <input type="text" id="name" value="사과" placeholder="과일명 입력">
+        </label>
+        <button id="add">추가</button>
+        <button id="remove">삭제</button>
+    </div>
+    <hr>
+    <h3>과일 리스트</h3>
+    <ul class="list">
+        <li id="list_item">사과</li>
+        <li id="list_item">멜론</li>
+    </ul>
+
+    <script>
+        const name = document.querySelector("#name") // 사용자가 입력한 과일명!
+        const ul_list = document.querySelector(".list") //추가되어진 과일리스트 ul
+        
+        const addBtn = document.querySelector("#add") //추가 버튼
+        const removeBtn = document.querySelector("#remove") //삭제 버튼
+
+        /////////////////////////////////////////////////////////////////////////////////////
+        
+        // enter 키 누를 시 추가버튼으로 이동
+        name.addEventListener("keyup", (e) => {
+            // console.log(e)
+            if (e.keyCode == 13 || which == 13) {
+                addBtn.focus() // 입력 창에서 버튼으로 이동
+            } 
+        })
+        addBtn.addEventListener("keyup", (m) => {
+            if (m.keyCode == 8 || which == 8) {
+                removeBtn.click()
+            }
+        })
+        
+        
+        /////////////////////////////////////////////////////////////////////////////////////
+        
+        // 추가버튼 이벤트
+        addBtn.addEventListener("click", () => { // 추가버튼 클릭 시!!!!
+            let value = name.value.trim() // 입력한 과일명 값 = value
+            const liElement = document.createElement("li") // liElement => li 태그추가
+
+            liElement.innerHTML = value // 입력 과일명에 li 태그 추가 
+
+            ul_list.insertBefore(liElement, ul_list.firstElementChild) //과일 리스트  ul_list.firstElementChild 위치에 추가
+
+            itemsView() // 과일 리스트 목록 갯수, 새로 추가된 과일 클릭 시 삭제
+        })
+
+/////////////////////////////////////////////////////////////////////////////////////
+        
+        // 삭제버튼 이벤트
+        removeBtn.addEventListener("click", () => { // 삭제버튼 클릭 시!!!!!!
+            console.log("remove") // "remove"
+            
+            const item_list = document.querySelectorAll(".list li") // 과일 리스트 li
+            const isZero = item_list.length // 과일 리스트 li 갯수
+
+            if (isZero > 0) { // 과일 리스트 li가 있을 때!
+                item_list.forEach((item) => {
+                    let itemName = item.innerText // itemName이 과일리스트의 과일 명칭
+                    if (itemName == name.value.trim()) { // 사용자 입력 과일명 = 과일리스트 과일명
+                        console.log(`${itemName}를 삭제합니다.`)
+                        ul_list.removeChild(item) // 과일 리스트 li 태그를 삭제
+    
+                    }
+                })
+            } else { // 과일 리스트 li가 없을 때!
+                alert("삭제할 항목이 없습니다.")
+            }
+        })
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+        itemsView() //호출
+
+        function itemsView() {
+            console.log("과일 리스트 목록 갯수 :", ul_list.children.length)
+            
+            for(let list_item of ul_list.children) { //ul_list.children 값이 차례로 열거
+                // console.log(list_item)
+                // <li id="list_item">사과</li>
+                // <li id="list_item">멜론</li>
+
+                list_item.addEventListener("click", (item) => {
+                    // alert(list_item.textContent) // 과일 리스트 클릭시 "list_item" 팝업 창
+                    list_item.remove(item) //클릭 시 현재 노드 삭제
+                })
+
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

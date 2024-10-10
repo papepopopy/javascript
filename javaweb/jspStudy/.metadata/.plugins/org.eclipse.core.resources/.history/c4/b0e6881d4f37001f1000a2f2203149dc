@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>팝업창</title>
+<script type="text/javascript">
+	function setPopupStart(obj) {
+		if (obj.checked == true) {
+			expireDate = new Date();//날짜 생성
+			expireDate.setMenth(expirDate.getMenth()+1) //현재 날짜(월)
+			document.cookie = "notShowPop" + "true" + "; path=/; expires="
+		}
+	}
+</script>
+</head>
+<body>
+	<div class="container">
+		<p>알림 팝업 창입니다.</p>
+		<form>
+			<div class="form-check">
+				<input type="checkbox" onClick="setPopUpStart(this);" >
+				오늘 그만보기
+			</div>
+		</form>
+	</div>
+</body>
+</html>

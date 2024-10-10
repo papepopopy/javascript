@@ -1,0 +1,13 @@
+package chap11;
+
+import java.util.Calendar;
+import chap04.vo.Data;
+
+public class DateClassCollectionTest {
+
+	public static void main(String[] args) {
+		Calendar cal = Calender.getInstance();
+		Data
+	}
+
+}

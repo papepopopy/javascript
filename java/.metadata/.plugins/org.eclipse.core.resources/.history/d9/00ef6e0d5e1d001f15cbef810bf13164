@@ -1,0 +1,29 @@
+package chap13;
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+public class StreamFlatMap {
+	public static void main(String[] args) {
+		String[] str1 = {"홍길동","동길이","동순이"};
+		String[] str2 = {"홍길동2","동길이2","동순이2"};
+		
+		Stream<String[]> stm1 = Stream.of(str1, str2);
+		stm1.forEach(x-> {
+			System.out.println(Arrays.toString(x));
+		});
+		
+		Stream<String[]> stm2 = Stream.of(str1, str2);
+		Stream<String> flatstm = stm2.flatMap(Arrays::stream);
+		
+		flatstm.forEach(x -> System.out.println(x));
+		
+		IntStream intStream =IntStream.range(0, 3);
+		intStream.forEach(System.out::println);
+		
+		IntStream.rangeClosed(0, 3).forEach(i -> System.out.println(i)); //0포함 안함
+		
+		int sum = 0
+	}
+}

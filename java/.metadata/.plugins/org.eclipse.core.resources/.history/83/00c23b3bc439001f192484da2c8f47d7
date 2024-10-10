@@ -1,0 +1,42 @@
+package sample03;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Scanner;
+
+public class test02 {
+
+	public static void main(String[] args) {
+//		두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+		int T = 5;				
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		//저장
+		StringBuilder sb = new StringBuilder(); 
+		
+//		T번 반복
+		for(int i=0; i<T; i++) {
+			String input = br.readLine();
+			String[] numbers = input.split(input)
+			
+			int A = Integer.parseInt(numbers[0]);
+			int B = scanner.nextInt();
+			
+			int sum = A+B;
+			
+			
+		}
+		bw.write(sb.toString());
+		bw.flush();
+		bw.close();
+		br.close();
+		
+		
+	}
+}

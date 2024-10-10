@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행 준비물 점검 목록 만들기</title>
+    <style>
+        ul, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .contant {
+            margin: 0 50px;
+        }
+        .title {
+            text-align: center;
+        }
+        .input-box {
+            background-color: #257fe6;
+            padding: 40px 60px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .input-text {
+            border: 1px solid #eee;
+            background-color: #fff;
+            padding: 10px;
+            height: 25px;
+            width: 100%;
+        }
+        .add-btn {
+            border: 1px solid #eee;
+            background-color: #fff;
+            padding: 10px;
+            height: 49px;
+            width: 60px;
+            text-align: center;
+        }
+        .checklist-box li {
+            line-height: 25px;
+            padding: 15px 30px;
+            border-bottom: solid #999 1px;
+        }
+        .close-btn {
+            float: right;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contant">
+        <h1 class="title">여행 준비물 점검 목록</h1>
+        <div class="input-box">
+            <input class="input-text"></input>
+            <button class="add-btn">추가</button>
+        </div>
+        <ul id="item-list" class="checklist-box">
+            <li>test<span class="close-btn">x</span></li>
+            <li>test<span class="close-btn">x</span></li>
+            <li>test<span class="close-btn">x</span></li>
+        </ul>
+    </div>
+
+    <script>
+        // 태그 추가
+        var inputText = document.querySelector(".input-text")
+        var addBtn = document.querySelector(".add-btn")
+        var itemList = document.querySelectorAll(".checklist-box")
+
+        addBtn.addEventListener("click", () => {
+            let value = inputText.value.trim()
+            console.log(value)
+            
+            const ilElement = document.createElement("li")
+            ilElement.innerHTML = value + "<span class='close-btn'>x</span>"            
+
+            if (value == "" || !value) {
+                alert("추가할 항목이 없습니다.")
+                return
+            }
+        })
+
+
+    </script>
+</body>
+</html>

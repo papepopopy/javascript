@@ -1,0 +1,5 @@
+package ex01.sample03.service;
+
+public class MemberVO {
+
+}

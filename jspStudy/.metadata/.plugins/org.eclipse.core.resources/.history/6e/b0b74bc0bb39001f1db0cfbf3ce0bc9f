@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+ 	String name = (String)session.getAttribute("name");
+ 	String id = (String)session.getAttribute("id");
+ %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>session 데이터 바인딩 삭제</title>
+</head>
+<body>
+	<h1>내장 객체 session 데이터 바인딩 : set</h1>
+	
+	<div>
+		세션값 읽기
+		<hr>
+		이름 : <%= name %> <br>
+		아이디 : <%= id %> <br>
+	</div>
+	<hr>
+	
+</body>
+</html>

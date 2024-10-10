@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타일 적용 실습</title>
+    <style>
+        h1, h2 {color: rgb(255, 0, 106);}
+        /* div {background-color: rgba(223, 86, 143, 0.384); color: #0c9607;} */
+        div#first {background-color: rgba(223, 86, 143, 0.384); color: #0c9607;}
+        #first >h2 { color: rgb(219, 41, 94);}
+        .style01 {color: blue;}
+        .style02 {font-size: 24px;}
+        .style03 {background-color: #ddff44;}
+
+        ul {list-style: none;}
+        #list {border: 1px solid #0835b3;}
+        #list > ul > li > span {background-color: rgba(130, 62, 255, 0.404);}
+        
+        #list h1:hover { color: rgb(214, 6, 93);}
+        #list h1:active { background-color: rgba(214, 6, 93, 0.507);}
+
+        /* 상태선택자
+        :checked, :focusm :enabled, :disabled */
+
+        input:enabled {background-color: #eee;}
+        input:disabled {color: red;}
+
+        /* 구조선택자
+        :fist-child, :last-child, :nth-child(), :nth-last-child() */
+
+        div#nth > p:first-child {color: red; background-color: #ddff44;}
+        div#nth > p:last-child {color: blue; background-color: #ddff44;}
+        div#nth > p:nth-child(3) {color: green;}
+        div#nth > p:nth-child(n) {font-size: 18px; font-weight:border;}
+        div#nth > p:nth-child(2n) {background-color: #171a0a; color: #fff;}
+        div#nth > p:nth-child(2n+1) {border-bottom: 5px solid #ac0505;}
+
+    </style>
+</head>
+<body>
+    <div id="nth">
+        <p>test - 1</p>
+        <p>test - 2</p>
+        <p>test - 3</p>
+        <p>test - 4</p>
+        <p>test - 5</p>
+    </div>
+    <div id="status">
+        활성화 : <input type="text"><br>
+        비활성화 : <input type="text" disabled value="disabled 상태">
+    </div>
+    <hr>
+    <div id="first">
+        <h1>제목1</h1>
+        <h2>제목2</h2>
+        <h3>제목3</h3>
+    </div>
+    <div>
+        <p class="style01">Laboris aliquip ex in id cupidatat quis reprehenderit quis deserunt elit proident cupidatat.</p>
+        <p class="style01 style02">Do est commodo exercitation sint non excepteur ad labore dolore irure veniam pariatur duis.</p>
+        <p class="style01 style02 style03">😁 Aute sit dolor ut commodo nulla.</p>
+    </div>
+    <hr>
+    <div id="list">
+        <ul>
+            <li>목록 - 1 
+                <span>하위요소 01
+                    <span>하위요소 02</span>
+                </span>
+            </li>
+            <li>목록 - 2
+                <h1>hover 상태</h1>
+            </li>
+            <li>목록 - 3
+                <h1>active 상태</h1>
+            </li>
+            <li>목록 - 4
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

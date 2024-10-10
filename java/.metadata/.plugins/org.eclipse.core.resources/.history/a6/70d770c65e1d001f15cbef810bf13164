@@ -1,0 +1,10 @@
+package chap13;
+
+public class StreamCollection {
+
+	public static void main(String[] args) {
+		List<String> list = new ArrayList<String>();
+		var list2 = new HashSet<String>();
+	}
+
+}

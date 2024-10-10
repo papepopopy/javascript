@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid 레이아웃</title>
+    <style>
+        #wrapper {
+            display: grid;
+            /* grid-template-columns: 200px 200px 200px;
+            grid-template-rows: 130px 130px; */
+
+            /* 1 : 1 : 1  비율 */
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr 1fr;
+            
+            /* 1 : 2 : 1  비율 */
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 1fr 2fr;
+            grid-template-rows: repeat(3, 1fr 2fr);
+
+            /* 최소 길이 (최소값, 최대값) */
+            /* grid-template-rows: 100px; */
+            grid-template-rows: minmax(100px, auto);
+            /* grid-template-columns: minmax(100px, auto); */
+        }
+        .items {
+            padding: 10px;
+            background-color: #eee;
+            overflow: hidden;
+        }
+        .items:nth-child(odd) {
+            background-color: #899e7b55;
+        }
+        .items:nth-child(even) {
+            background-color: #a7195455;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="items">Occaecat aute minim id elit magna ipsum reprehenderit consequat qui.</div>
+        <div class="items">Culpa aliquip amet occaecat minim duis non.</div>
+        <div class="items">Dolor cupidatat ad laboris labore excepteur.</div>
+        <div class="items">Et tempor mollit officia voluptate exercitation irure quis proident exercitation dolor ad laborum culpa occaecat.</div>
+        <div class="items">Ipsum eiusmod adipisicing esse qui ipsum exercitation qui sit minim sunt consequat esse.</div>
+    </div>
+</body>
+</html>

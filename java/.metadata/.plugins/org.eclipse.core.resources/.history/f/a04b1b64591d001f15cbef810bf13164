@@ -1,0 +1,8 @@
+package chap13;
+
+public class StreamFlatMap {
+	public static void main(String[] args) {
+		String[] str1 = {"홍길동","동길이","동순이"};
+		String[] str2 = {"홍길동","동길이","동순이"};
+	}
+}

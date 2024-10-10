@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트레지션</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #eee;
+            background-color: #333;
+            margin: 20px auto;
+            transition-delay: 0.5s;
+            transition-timing-function: cubic-bezier(.14,.79,.95,.39);
+            transition-property: width, height;
+            transition-duration: 2s, 1s;
+            transition: all 3xs cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        .box:hover {
+            width: 200px;
+            height: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인 신상 정보 입력</title>
+</head>
+<body>
+    <h3>개인 신상 정보 입력</h3>
+    <form action="">
+        <b>- 이름 : </b><input type="text" /><br>
+        <b>- 비밀번호 : </b><input type="password" value="1234"/><br>
+        <b>- 성별 : </b>
+        <input type="radio" name="me" id="me" />남성 
+        <input type="radio" checked name="me" id="me" />여성<br>
+        <b>- 취미 : </b>
+        <input type="checkbox" name="fe" id="fe" value="01"/>영화감상 
+        <input type="checkbox" name="fe" id="fe" value="02" checked />게임 
+        <input type="checkbox" name="fe" id="fe" value="03" checked />음악듣기<br>
+        <b>- 파일 첨부 : </b><input type="file" /><br>
+        <b>- 이메일 : </b><input type="text">@ <select name="mail" id=""><option value="01">naver.com</option><option value="02">구글</option></select><br><br>
+        <b>- 자기소개 : </b><textarea cols="30" rows="6"></textarea><br><br>
+        <input type="submit" value="확인">
+    </form>
+</body>
+</html>

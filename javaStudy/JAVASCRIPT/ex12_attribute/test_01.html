@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행 준비물 점검 목록 만들기</title>
+    <style>
+        ul, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .contant {
+            margin: 0 50px;
+        }
+        .title {
+            text-align: center;
+        }
+        .input-box {
+            background-color: #257fe6;
+            padding: 40px 60px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .input-text {
+            border: 1px solid #eee;
+            background-color: #fff;
+            padding: 10px;
+            height: 25px;
+            width: 100%;
+        }
+        .add-btn {
+            border: 1px solid #eee;
+            background-color: #fff;
+            padding: 10px;
+            height: 49px;
+            width: 60px;
+            text-align: center;
+        }
+        .checklist-box li {
+            line-height: 25px;
+            padding: 15px 30px;
+            border-bottom: solid #999 1px;
+        }
+        .close-btn {
+            float: right;
+            font-size: 22px;
+        }
+    </style>
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+</head>
+<body>
+    <div class="contant">
+        <h1 class="title">여행 준비물 점검 목록</h1>
+        <div class="input-box">
+            <input class="input-text" id="item"></input>
+            <button class="add-btn">추가</button>
+        </div>
+        <ul class="checklist-box item-list">
+            <li>test<span class="close-btn">x</span></li>
+            <li>test<span class="close-btn">x</span></li>
+            <li>test<span class="close-btn">x</span></li>
+        </ul>
+    </div>
+
+    <script>
+        localStorage.setItem(1, "첫번째 값")
+        localStorage.clear()
+        
+        var colors = ["red", "green", "blue", "white", "black"];
+        localStorage.setItem("mycolor", JSON.stringify(colors));
+        localStorage.clear();
+
+
+        const inputText = document.querySelector(".input-text")
+        const addBtn = document.querySelector(".add-btn")
+        const itemList = document.querySelector(".item-list")
+        const itemListText = document.querySelectorAll(".item-list li")
+
+        
+        inputText.addEventListener("keyup", function(e) {
+            if(e.keyCode === 13) {
+                addBtn.focus();
+            }
+        })
+        // 클릭 시 이벤트 불러오기
+        addBtn.addEventListener("click",() => {
+            // console.log(itemListText)
+            const inputValue = inputText.value.trim();
+            
+            if(inputValue !== "") {
+                // inputValue가 공백이 아닐때 값을 추가
+                
+                console.log(inputValue);
+                // itemList.innerHTML = inputValue;
+
+                // 닫기버튼
+                const closeBtn = document.createElement("span");
+                closeBtn.classList.add("close-btn");
+                closeBtn.textContent = "x";
+
+                // 닫기버튼 클릭시 이벤트
+                closeBtn.addEventListener("click",()=>{
+                    newListItem.remove();
+                });
+
+                // 리스트 형식
+                const newListItem = document.createElement('li');
+                newListItem.textContent = inputValue;
+                newListItem.appendChild(closeBtn);
+
+                // 코드 추가
+                const parentElement = document.querySelector(".checklist-box")
+
+                // 제작한 inputValue 리스트 값을 추가
+                parentElement.appendChild(newListItem);
+
+
+                // itemListText.inputHTML()
+                // inputText.value = "";
+                // console.log("추가된 값 =>", itemListText);
+
+
+                localStorage.setItem("storageList", JSON.stringify(inputValue));
+            };
+            // addList();
+        })
+        
+    </script>
+</body>
+</html>

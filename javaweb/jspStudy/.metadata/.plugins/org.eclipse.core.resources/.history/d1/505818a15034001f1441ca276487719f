@@ -1,0 +1,58 @@
+package ex01.sample02.service;
+
+import java.util.List;
+
+import ex01.sample03.dao.MemberDAO;
+
+public class MemberDAOServiceImpl implements MemberDAOService {
+	private MemberDAO dao;
+	
+	public MemberDAOServiceImpl() {
+		dao = new MemberDAO();
+	}
+	
+	@Override
+	public List<MemberVO> listMembers() {
+		List<MemberVO> list = dao.listMembers();
+		return list;
+	}
+
+	@Override
+	public int registerMember(MemberVO memberVO) {
+		
+		int result = 0;
+		result = dao.registerMember(memberVO);
+		
+		return 0;
+	}
+
+	@Override
+	public void connDB() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int regMember(MemberVO memberVO) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int modMember(MemberVO memberVO) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public MemberVO viewMember(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int removeMember(MemberVO memberVO) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}

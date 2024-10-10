@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;chap11.CastimgEx&apos; to &apos;CastingEx&apos;&#x0D;&#x0A;- Original project: &apos;chap01&apos;&#x0D;&#x0A;- Original element: &apos;chap11.CastimgEx&apos;&#x0D;&#x0A;- Renamed element: &apos;chap11.CastingEx&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CastimgEx&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;chap11{CastimgEx.java[CastimgEx" matchStrategy="1" name="CastingEx" qualified="false" references="true" similarDeclarations="false" stamp="1716773123901" textual="false" version="1.0"/>
+</session>

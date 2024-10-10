@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FileUpLoadForm</title>
+<%@include file = "/include/bootstrap_include.jsp"%>
+</head>
+<body>
+	<div class="container">
+		<h1>File Upload Form</h1>
+		<form action="/webjsp/uplod.do">
+			<div class="mb-3">
+				  <label for="formFile" class="form-label">파일1</label>
+  				  <textarea class="form-control" type="file" id="exampleFormControlTextarea1" rows="3"></textarea>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타일02</title>
+    <style>
+        /* 클래스 선택자 */
+        #rint {color: red;}
+        .sel {color: green;}
+        .sel2 {background-color: blanchedalmond;}
+        .sel3 {font-size: 24px;}
+
+        /* 속성 선택자 */
+        input[type="text"] {background-color: aqua;}
+
+        /* 후손 선택자 : 선택자A > 선택자B */
+        #header h1 {background-color: rgb(128, 230, 108);}
+        #section h1 {background-color: rgb(202, 135, 111);}
+
+        /* 자손 선택자 : 선택자A > 선택자B */
+        #header > h1 {color: rgb(46, 199, 15);}
+        #section >h1 {color: orangered;}
+
+        table tbody > tr > th { color: blueviolet;}
+        table th { color: blueviolet;}
+
+        /* 반응 선택자 */
+        table th:hover { background-color: gray;}
+        table th:active { background-color: gray;}
+
+        
+    </style>
+</head>
+<body>
+    <table border="1" width="100">
+        <tbody>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <div id="header">
+        <h1 class="title">Loarem ipsum</h1>
+        <div class="nav">
+            <h1>Navigation</h1>
+        </div>
+    </div>
+    <div id="section">
+        <h1 class="title">Lorem ipsum</h1>
+        <p>Culpa laboris laborum dolor aliqua eiusmod excepteur velit.</p>
+    </div>
+    <hr>
+    <input type="text" />
+    <input type="password" />
+    <h1 id="rint">css3 선택자</h1>
+    <h2>css3 선택자</h2>
+    <h3 id="rint">css3 선택자</h3>
+    <hr>
+    <ul>
+        <li class="sel">list-1</li>
+        <li>list-2</li>
+        <li class="sel sel2">list-3</li>
+        <li>list-4</li>
+        <li class="sel sel3">list-5</li>
+    </ul>
+</body>
+</html>

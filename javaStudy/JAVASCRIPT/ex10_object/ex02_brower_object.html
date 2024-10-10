@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저 객체 (BOM: Browser Object Model)</title>
+</head>
+<body>
+    <h3>focus() / blur()</h3>
+    <div class="box2">
+        <input type="text" id="name" placeholder="이름">
+        <input type="email" id="email" placeholder="이메일">
+    </div>
+
+    <h3>BOM</h3>
+    <hr>
+    <div class="box1">
+        <button class="btn1">링크(href)</button>
+        <!-- <a href="#"></a> -->
+        <button class="btn2">새창(open)</button>
+        <button class="btn3">창 닫기(close)</button>
+        <button class="btn4">setTimeInterval</button>
+        <button class="btn5">새로고침(relod)</button>
+        <button class="btn6">이전페이지/ 다음페이지 이동</button>
+    </div>
+    <script>
+        const my_href = document.querySelector(".btn1")
+        const my_open = document.querySelector(".btn2")
+        const my_close = document.querySelector(".btn3")
+        const my_setTime = document.querySelector(".btn4")
+        const my_reload = document.querySelector(".btn5")
+        const my_go = document.querySelector(".btn6")
+        const name = document.querySelector("#name")
+        const email = document.querySelector("#email")
+
+        // 포커스 설정
+        name.focus()
+        name.addEventListener("keyup", (keyGubun) => {
+            // console.log("keyCode : " + keyGubun.keyCode) // enter시 13
+
+            let maxLen = name.value.length
+            console.log("name, length : ", maxLen)
+
+            if (keyGubun.keyCode == 13 || maxLen >= 7) {
+                email.focus()
+            }
+        })
+        name.addEventListener("focus", () => {console.log("이름을 입력해주세요")})
+        name.addEventListener("blur", () => {console.log("이름 입력완료")})
+
+        email.addEventListener("focus", () => {console.log("이메일을 입력해주세요")})
+        email.addEventListener("blur", () => {console.log("이메일 입력완료")})
+
+        my_go.addEventListener ("click",() => {
+            location.href = "first.html"
+        })
+
+        my_reload.addEventListener ("click",() => {
+            window.location.reload()
+        })
+
+        my_setTime.addEventListener ("click",() => {
+            var count = 100
+            setTimeout(function(){
+                count++
+                console.log(count)
+            }, 2000) // 2초 후 1회만 수행
+
+            console.log("1회만 수행 가능합니다.")
+        })
+
+        my_close.addEventListener ("click",() => {
+            console.log("close")
+            window.close()
+        })
+
+        my_open.addEventListener("click" ,() => {
+            window.open("ex01_date.html")
+            const win = window.open(
+                "ex01_date.html",
+                "win1", "width=350, height=400, left=300, top=200"
+            )
+            win.focus()
+
+
+        })
+
+        my_href.addEventListener("click",function() {
+            let mySum = [1, 2, 3, 4, 5].reduce ((a,b) => a+b)
+            
+            window.alert(`합의 결과값 :  ${mySum}`)
+            window.location.href = "ex01_date.html"
+        })
+    </script>
+</body>
+</html>

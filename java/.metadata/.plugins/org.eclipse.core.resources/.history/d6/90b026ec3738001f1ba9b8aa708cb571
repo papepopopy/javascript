@@ -1,0 +1,62 @@
+package test.chapter20_01;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class N01ClientSocketTest {
+	
+	public static void main(String[] args) {
+		
+		// 애플리케이션을 초기화하고 클라이언트 접속을 처리합니다. (N04ChatServerThread 스레드 생성)
+
+		
+		
+		Socket socket = null; //소켓 객체 선언
+		
+		InputStream is = null; //입력 스트림 객체 선언
+		OutputStream os = null; //출력 스트림 객체 선언
+		
+		BufferedReader br = null; //문자 입력 스트림 버퍼링 객체 선언
+		BufferedWriter bw = null; //문자 출력 스트림 버퍼링 객체 선언
+		
+		PrintWriter writer = null; //문자열 출력 객체 선언
+		String message = null; // 서버로 부터 받은 메시지를 저장할 문자열 변수 선언
+		String sendMsg = ""; // 서버로 보낼 메시지 저장할 문자열 변수 선언
+		
+		try {
+			//서버 접속 / 서버의 IP주소 및 포트 번호 지정 하여 소켓 생성
+			socket = new Socket("localhost", 8080);
+			
+			//소켓의 입·출력 스트림 출력
+			is = socket.getInputStream(); //입력 스트림
+			os = socket.getOutputStream(); //출력 스트림
+			
+			
+			//서버에서 메시지를 읽기 위한 버퍼링 객체 생성
+			br = new BufferedReader(new InputStreamReader(is));
+			// 인코딩 정보를 문자로 변환 (InputStreamReader)
+			//  => 데이터를 라인단위로 읽기 위한 버퍼링(BufferedReader)
+			
+			message = br.readLine(); //한줄씩 읽어오기
+			System.out.println(message); //출력
+			
+			//사용자에게 메세지를 입력받기 위해 scanner 객체 생성
+			Scanner sc = new Scanner(System.in);
+			System.out.println("문자 보내기 : ");
+			sendMsg = sc.nextLine(); // 한줄씩 읽어오기
+			writer.println("홍길동 : " + sendMsg); //출력
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+	}
+
+}

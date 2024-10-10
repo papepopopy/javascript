@@ -1,0 +1,10 @@
+package ex01.sample04;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@SuppressWarnings("serial")
+@WebServlet("/cfile")
+public class ContextFileServlet extends HttpServlet {
+
+}

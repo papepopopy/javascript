@@ -1,0 +1,6 @@
+package ex01.sample02.service;
+
+public class MemberDAOServiceImpl implements MemberDAOService {
+
+	@Override
+}

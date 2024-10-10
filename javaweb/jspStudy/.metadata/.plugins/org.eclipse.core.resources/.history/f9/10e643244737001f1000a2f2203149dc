@@ -1,0 +1,9 @@
+package ex01.sample05;
+
+import javax.servlet.annotation.WebServlet;
+
+@SuppressWarnings("serial")
+@WebServlet("/set")
+public class GetCookieValue {
+
+}

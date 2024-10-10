@@ -1,0 +1,12 @@
+package chap13;
+
+import java.util.Arrays;
+
+public class StreamSample01 {
+	public static void main(String[] args) {
+		var list = Arrays.asList(1, 2, 3, 2, 1, 5);
+		System.out.println(list.toString());
+		System.out.println(list.toString());
+		
+	}
+}

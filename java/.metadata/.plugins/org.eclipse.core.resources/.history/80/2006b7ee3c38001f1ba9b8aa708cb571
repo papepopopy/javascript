@@ -1,0 +1,76 @@
+package test.chapter20_01;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class N03ChatClientTest {
+	
+	public static void main(String[] args) {
+		
+//		N03ChatClientTest의 main 메서드를 실행하여 클라이언트를 시작합니다.
+//		클라이언트는 사용자로부터 대화명을 입력받고 서버에 접속합니다.
+//		서버로부터의 메시지를 수신하기 위해 N01ChatRecvThread를 시작합니다.
+//		사용자로부터 메시지를 입력받아 서버로 전송합니다.
+		
+		// 두번째 시작
+			
+		Socket socket = null; // 서버와의 통신을 위한 소켓 객체 선언
+		InputStream is = null; // 서버로 부터 데이터를 읽기 위한 입력 스트림 객체 선언
+		OutputStream os = null;
+		
+		BufferedReader br = null;
+		BufferedWriter bw  = null;
+		PrintWriter writer = null;
+		
+		String inMessage = null;//  서버로 부터 문자 받기	
+		String outMessage = null;// 서버로 문자 보내기
+		String nickName = null;
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("대화명을 입력하세요. ");
+		nickName = sc.nextLine();
+		
+		
+		try {
+			//socket = new Socket("localhost", 8888);
+//			socket = new Socket("127.0.0.1", 8888);
+			socket = new Socket("192.168.0.12", 8888);
+
+			is =  socket.getInputStream();
+			os = socket.getOutputStream();
+
+			// 서버로부터 메시지 받기: Thread클래스로 처리
+			N01ChatRecvThread rThread = new N01ChatRecvThread(socket);
+			rThread.start();
+			
+			// 송수신에 사용 할 입출력 버퍼
+			//br = new BufferedReader(new InputStreamReader(is));
+			bw = new BufferedWriter(new OutputStreamWriter(os));
+			writer = new PrintWriter(bw, true);
+			
+			while(true) {
+				// 서버로 부터 전송받은 문자 확인
+				//inMessage = br.readLine();
+				//System.out.println(inMessage);
+				
+				outMessage = sc.nextLine();
+				if (outMessage.equals("exit")) {
+					break;
+				}
+				
+				writer.println(nickName + ": "+outMessage);
+			}
+			
+			sc.close();writer.close();socket.close();
+			
+			
+		} catch (Exception e) {}
+	}
+
+}

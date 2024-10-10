@@ -1,0 +1,27 @@
+package ex01.sample06;
+
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+
+public class LoginBindingListenerImpl implements HttpSessionBindingListener {
+//	서블릿 관련 Listener API
+	
+	String user_id;
+	String user_pw;
+	
+	static int total_user = 0;
+	public LoginBindingListenerImpl() {} //인자가 없지만 넣어야 에러가 안생김
+	public LoginBindingListenerImpl(String user_id , String user_pw ) {
+		this.user_id = user_id
+	}
+	
+	@Override
+		public void valueBound(HttpSessionBindingEvent event) {
+			HttpSessionBindingListener.super.valueBound(event);
+		}
+	@Override
+		public void valueUnbound(HttpSessionBindingEvent event) {
+			HttpSessionBindingListener.super.valueUnbound(event);
+		}
+	
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 양식 01</title>
+</head>
+<body>
+    <h3>폼 양식 01</h3>
+    <hr>
+    이름 : <input type="text" />
+    <hr>
+    <h4>text 관련 태그</h4>
+    <form action="form_test.html" method="get">
+        <label id="label01">아이디 : </label>
+        <input type="text" size="20" maxlength="10" name="id" id="id" placeholder="아이디를 입력해주세요" />
+        <br>
+        <label id="label02">비밀번호 : </label><input type="password" value="비밀번호" maxlength="10" size="18" placeholder="비밀번호를 입력하세요" />
+        <hr>
+        <input type="hidden" name="hidden" value="hidden" />
+        <input type="submit" value="제출" />
+        <input type="reset" value="초기화">
+    </form>
+    <h4>선택요소 관련 태그</h4>
+    <form action="form01.html" method="post">
+        <label id="정보공개">정보공개 : </label><input type="radio" name="ra1" checked value="1" />공개 <input type="radio" name="ra1" value="0" />비공개
+        <h4>취미</h4>
+        <input type="checkbox" name="ho1" checked value="1"/>탁구
+        <input type="checkbox" name="ho2" checked value="2"/>배드민턴
+        <input type="checkbox" name="ho3"  value="3"/>음악감상
+        <input type="checkbox" name="ho4"  value="4"/>악기연주
+    </form>
+    <h4>이메일</h4>
+    <select name="sel">
+        <option value="1">네이버</option>
+        <option value="2" selected>카카오톡</option>
+        <option value="3">구글</option>
+    </select>
+    <br>
+    <input type="file" name="filename">
+</body>
+</html>

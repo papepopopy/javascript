@@ -1,0 +1,1 @@
+console.log("<script> 객체 생성")

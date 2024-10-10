@@ -1,0 +1,54 @@
+package chap11;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class DateClassCollectionTest {
+
+	public static void main(String[] args) {
+		Calendar cal = Calendar.getInstance();
+		Date data = cal.getTime();
+		System.out.println(data); //Mon May 27 14:46:52 KST 2024
+		
+		System.out.println(cal.get(Calendar.YEAR)); //2024
+		System.out.println(cal.get(Calendar.MONTH)+1); //5
+		System.out.println(cal.get(Calendar.DAY_OF_MONTH)); //27
+		System.out.println(cal.get(Calendar.HOUR_OF_DAY)); // 14
+		System.out.println(cal.get(Calendar.MINUTE)); //51
+		System.out.println(cal.get(Calendar.SECOND)); //52
+		
+//		숫자 표시
+		int myMondy = -5000;
+		System.out.println(myMondy); //-5000
+		
+//		# 대신 0이 가능하다 
+//		# 경우 0 -> 공백 / 0 경우 0 -> 0
+		DecimalFormat df = new DecimalFormat("#,###.##");
+		System.out.println(df.format(myMondy)); //-5,000
+		
+		DecimalFormat df2 = new DecimalFormat("#,###.##0");
+		DecimalFormat df3 = new DecimalFormat("#,0#E0");
+		DecimalFormat df4 = new DecimalFormat("(수익)#.##0; (손실)#,##0");
+		System.out.println(df2.format(5000000000000000000L)); // -5000 
+		System.out.println(df3.format(5000000000000000000L)); // -5000 
+		System.out.println(df4.format(50000)); 
+		System.out.println(df4.format(-50000)); 
+		System.out.println(df4.format(0)); 
+		
+		DecimalFormat df5 = new DecimalFormat("##0%"); // 곱하기100
+		System.out.println(df5.format(0.01)); 
+		
+		int users = 14638;
+		int views = 1500;
+		
+		NumberFormat nf = CompactNumberFormat.getCompactNumberInstance();
+		System.out.printf("구독자 %s\n", nf.format(users));
+		System.out.printf("조회수 %s\n", nf.format(views));
+		
+		SimpleDateFormat f1 = new SimpleDataFormat("YYYY년 NN월 dd일 ")
+		
+	}
+
+}

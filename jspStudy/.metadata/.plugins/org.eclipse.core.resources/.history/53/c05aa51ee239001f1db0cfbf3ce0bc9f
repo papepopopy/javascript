@@ -1,0 +1,8 @@
+package ex03.vo;
+
+public class MemberBean {
+	
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,10 @@
+package ex01.sample02;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+
+public class LoginServletResponse extends HttpServlet {
+	@Override
+	public void init() throws ServletException {
+	}
+}

@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%
+	request.setCharacterEncoding("utf-8");
+	String name = request.getParameter("name");
+	
+	String gender = request.getParameter("gender");
+	String gender_name = gender.equals("male")?"남자":"여자";
+	
+	request.getParameterValues(name)
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>jsprequest result page</title>
+</head>
+<body>
+	<!-- 연결 페이지 -->
+	<h1>jsprequest result page</h1>
+	<div>이름 <%=name%></div>
+	<div>성별 <%=gender_name%></div>
+	<div>성별 <%=gender.equals("male")?"남자":"여자"%></div>
+	
+</body>
+</html>

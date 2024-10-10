@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container, #container2 {
+            width: 800px;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+        }
+        #container .origin {
+            width: 100px;
+            height: 100px;
+
+            margin: 40px;
+            background-color: #ff6600e7;
+        }
+        #container .origin > div { 
+            width: 100px;
+            height: 100px;
+            background-color: #690d808a;
+            transition: all 0.2s;
+        }
+        #movex:hover {
+            transform: translateX(50px) scalex(2) rotate(45deg);
+        }
+        #movey:hover {
+            transform: translateY(20px) scale(1, 5) rotate(-45deg);
+        }
+        #movexy:hover {
+            transform: translate(19px, 10px) scale(0.7);
+        }
+
+        #container2 > .origin {
+            width: 152px;
+            height: 180px;
+            border: 1px solid #ff0000;
+            float: left;
+            margin: 30px;
+        }
+        #container2 #rotatex {
+            transition: all 0.6s;
+        }
+        #container2 #rotatex:hover {
+            /* transform: rotatex(50deg); */
+            transform: rotatey(50deg);
+        }
+        #pers {
+            /* 원근감 추가 : 회전하는 요소의 부모요소에서 설정함 */
+            perspective: 800px;
+        }
+        #container2 #rotatex2 {
+            transition: all 0.6s;
+        }
+        #container2 #rotatex2:hover {
+            /* transform: rotateX(50deg); */
+            /* transform: rotateY(50deg); */
+            /* transform: rotate3d(2.5, 2.2, 1.2, 55deg); */
+            transform: skewX(10deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="container2">
+        <div class="origin">
+            <img src="img/sunset.jpg" alt="이미지">
+        </div>
+        <div class="origin">
+            <div id="rotatex">
+                <img src="img/sunset.jpg" alt="이미지">
+            </div>
+        </div>
+        <div class="origin" id="pers">
+            <div id="rotatex2">
+                <img src="img/sunset.jpg" alt="이미지">
+            </div>
+        </div>
+    </div>
+    <div id="container">
+        <div class="origin">
+            <div id="movex"></div>
+        </div>
+        <div class="origin">
+            <div id="movey"></div>
+        </div>
+        <div class="origin">
+            <div id="movexy"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+package ex01.sample04;
+
+import javax.servlet.http.HttpServlet;
+
+public class ContextParamSelvlet extends HttpServlet {
+	
+	@Override
+	
+
+}

@@ -1,0 +1,9 @@
+package ex01.sample02.service;
+
+public class MemberDAOService {
+
+	public static void main(String[] args) {
+
+	}
+
+}

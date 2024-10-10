@@ -1,0 +1,56 @@
+package test.chapter20_01;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class N02ChatServerTest {
+
+	public static void main(String[] args) {
+		
+//		N02ChatServerTest의 main 메서드를 실행하여 서버를 시작합니다.
+//		서버는 8888 포트에서 클라이언트 접속을 대기합니다.
+//		클라이언트가 접속하면 클라이언트의 닉네임을 읽어들여 새로운 
+//		N04ChatServerThread를 생성하고 시작합니다.
+//		클라이언트 시작:
+		
+		
+		ServerSocket serverSocket = null; //서버 소켓 초기화
+		Socket socket = null; // 클라이언트와의 틍신을 위한 소켓 초기화
+		
+		N04ChatServerThread thread; //클라이언트와 통신할 스레드 객체 선언
+
+		try {
+			// 서버 연결
+			serverSocket = new ServerSocket(8888);
+			System.out.println("접속 대기 중....");
+			
+			// 클라이언트 연결 while
+			while(true) {	
+				// 접속 시 소켓 생성
+				socket = serverSocket.accept();
+					
+				// 클라이언트로 부터 넘어온 메시지(닉네임) 읽기
+				InputStream is = socket.getInputStream();
+				BufferedReader br = new BufferedReader(new InputStreamReader(is));
+				String nickName = br.readLine();
+				
+				// 출력
+				System.out.println("접속IP: "+ socket.getInetAddress());
+				System.out.println("접속자: "+ nickName);
+				
+				// 통신 스레드 생성 
+				thread = new N04ChatServerThread(socket, nickName);
+				// 스레드 시작
+				thread.start();
+			
+			}
+			
+		} catch (Exception e) {}
+		
+
+	}
+
+}

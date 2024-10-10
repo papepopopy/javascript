@@ -1,0 +1,13 @@
+package chap13;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StreamCollection {
+
+	public static void main(String[] args) {
+		List<String> list = new ArrayList<String>();
+		var list2 = new HashSet<String>();
+	}
+
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid02</title>
+    <style>
+
+        /* fit과 fill의 차이  : 공간을 다채움 / 최소 값에 맞춤 */
+
+        #wrapper01 {
+            display: grid;
+            /* 가로 최소 200 유지 */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-column-gap: 20px;
+            grid-row-gap: 10px;
+            margin-bottom: 20px;
+        }
+        #wrapper02 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            /* grid-column-gap: 20px; grid-row-gap: 10px; */
+            grid-gap: 20px 10px;
+            margin-bottom: 20px;
+        }
+        h1 {font-size: 32px;}
+        .items {padding: 15px; background-color: #705ec0;}
+        .items:nth-child(even) {background-color: #ffe0d8; color: #301d88;}
+    </style>
+</head>
+<body>
+    <h1>auto-fit</h1>
+    <div id="wrapper01">
+        <div class="items">Eu voluptate magna tempor elit.</div>
+        <div class="items">Sit adipisicing sint consequat velit sit magna excepteur.</div>
+        <div class="items">Do nostrud laborum qui eu aute exercitation culpa.</div>
+        <div class="items">Minim ex nisi et incididunt voluptate qui.</div>
+        <div class="items">Anim enim occaecat laboris ea reprehenderit consequat Lorem proident dolore dolore magna in.</div>
+        <div class="items">Est dolor sint incididunt est esse reprehenderit ea incididunt.</div>
+    </div>
+    <br>
+    <hr>
+    <h1>auto-fill</h1>
+    <div id="wrapper02">
+        <div class="items">Eu voluptate magna tempor elit.</div>
+        <div class="items">Sit adipisicing sint consequat velit sit magna excepteur.</div>
+        <div class="items">Do nostrud laborum qui eu aute exercitation culpa.</div>
+        <div class="items">Minim ex nisi et incididunt voluptate qui.</div>
+        <div class="items">Anim enim occaecat laboris ea reprehenderit consequat Lorem proident dolore dolore magna in.</div>
+        <div class="items">Est dolor sint incididunt est esse reprehenderit ea incididunt.</div>
+    </div>
+</body>
+</html>

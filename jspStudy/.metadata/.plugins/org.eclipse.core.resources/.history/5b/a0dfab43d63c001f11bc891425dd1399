@@ -1,0 +1,10 @@
+package ex05.controller.vo;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class jsonVO {
+
+}

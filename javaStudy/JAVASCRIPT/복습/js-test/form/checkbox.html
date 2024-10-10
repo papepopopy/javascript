@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스</title>
+    <style>
+        .alert-box, .check-box {
+            padding: 10px;
+            border: 1px solid #aaa;
+        }
+        input {
+            margin: 10px;
+            line-height: 30px;
+        }
+        label {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="check-box">
+            <label>
+                <input class="c" id="chA"  type="checkbox" value="바나나" checked>바나나
+            </label>
+            <label>
+                <input class="c" id="chB" type="checkbox" value="딸기">딸기
+            </label>
+            <label>
+                <input class="c" id="chC" type="checkbox" value="포도">포도
+            </label>
+            <hr>
+            <div class="alert-box">
+                test
+            </div>
+        </div>
+    </div>
+    <script>
+        const checkBoxA = document.querySelector("#chA")
+        const checkBoxB = document.querySelector("#chB")
+        const checkBoxC = document.querySelector("#chC")
+
+        // console.log(checkBoxA, checkBoxB, checkBoxC)
+
+        // if (checkBoxA.checked) {
+        //     console.log(checkBoxA.value)
+        // }   else {
+        //     console.log(checkBoxA.value)
+        // }
+
+        // checkBoxA.addEventListener("change", (e) => {
+        //     console.log("A change =>", e.target.checked)
+        //     if (e.target.checked == true) {
+        //         //A change => false
+        //         //A change => true
+
+        //         console.log("체크된 값은 :" + e.target.value) // 체크된 값은 :바나나
+        //     }
+        // })
+        checkBoxA.checked = true
+        var arrayChk = document.querySelectorAll(".c")
+        const result = document.querySelector(".result")
+
+        checkBoxAll()
+
+        arrayChk.forEach((chk) => {
+            chk.addEventListener("change", (e) => {
+                console.log("change", chk.id)
+                checkBoxAll()
+            })
+        })
+
+        function checkBoxAll() {
+            console.log(arrayChk)
+
+            let check_str = ""
+
+            arrayChk.forEach((chk) => {
+                if(chk.checked) {
+                    check_str += chk.value + ","
+                }
+            })
+        }
+    </script>
+</body>
+</html>

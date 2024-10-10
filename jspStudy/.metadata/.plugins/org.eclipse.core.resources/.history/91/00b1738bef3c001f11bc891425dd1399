@@ -1,0 +1,194 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON Data</title>
+<%@include file="/include/bootstrap_include.jsp" %>
+</head>
+<body>
+	<div class="container">
+		<div>
+			<a href="#" id="checkJson" class="link-underline-danger">JSON Data 보내기</a>
+		</div>
+		<div>
+			<a href="#" id="checkJson2" class="link-underline-danger">JSON Data2 보내기</a>
+		</div>
+		<div>
+			<a href="#" id="checkJson3" class="link-underline-danger">JSON Data3 보내기</a>
+		</div>
+		<div>
+			<a href="#" id="checkJson4" class="link-underline-danger">Ajax 서버와 JSON Data 보내기/받기</a>
+		</div>
+		<br>
+		<div id="output" class="alert alert-primary">
+			result
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script>
+		$(function() {
+			$("#checkJson4").click(function(){
+				var _jsonInfoArray = {
+					member: [ 
+						{name:"홍길동", age:10, gender:"남자", nickname:"돌이" },
+						{name:"동순이", age:11, gender:"여자", nickname:"순둥이" },
+						{name:"길순이", age:12, gender:"여자", nickname:"뺑실이" }
+						]
+				};
+				$.ajax({
+					type: "post",
+					url: "/webjsp/json",
+					async: false, //서버 응답까지 대기(동기) / true: 비동기
+					data: {
+						jsonInfoArray: JSON.stringify(_jsonInfoArray)
+					},
+					dataType: "text",
+					success : function(data, textStatus) {// 서버에서 받은 데이터/요청상태 출력
+						console.log("정상 처리");
+						
+						console.log("서버로부터받은 JSON객체 문자열");
+						console.log(data);
+					
+						let jsonMembers = JSON.parse(data);
+						console.log(jsonMembers.members);
+						
+						let html_out = `
+							<table class="table">
+							  <thead>
+							    <tr>
+							      <th scope="col">나이</th>
+							      <th scope="col">이름</th>
+							      <th scope="col">성별</th>
+							      <th scope="col">닉네임</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							  <tr>
+							  <td>
+						`;
+						console.log(html_out);
+						
+						for(let i=0; i<jsonMembers.members.length(); i++) {
+							console.log(jsonMembers.members[i])
+							
+							//개별 속성
+				/* 			console.log(jsonMembers.members[i].name)
+							console.log(jsonMembers.members[i].age)
+							console.log(jsonMembers.members[i].nickname)
+							console.log(jsonMembers.members[i].gender) */
+							
+							html_out += "<tr>"
+								html_out += "<td>"+jsonMembers.members[i].name
+								html_out += "</td>"
+							html_out += "</tr>"
+							html_out += "<tr>"
+								html_out += "<td>"+jsonMembers.members[i].age
+								html_out += "</td>"
+							html_out += "</tr>"
+							html_out += "<tr>"
+								html_out += "<td>"+jsonMembers.members[i].gender
+								html_out += "</td>"
+							html_out += "</tr>"
+							html_out += "<tr>"
+								html_out += "<td>"+jsonMembers.members[i].gender
+								html_out += "</td>"
+							html_out += "</tr>"
+						}// outer for
+						
+						html_out += `
+							</tr>
+							</td>
+							</tbody>
+							</table>
+						`;
+					},
+					
+					error : function(){ // 요청상태
+						alert("에러 발생");
+					},
+					complete: function() {
+						console.log("작업 완료");
+					}
+				});
+				$("#output").html(output) // HTML객체로 전환
+			});
+			
+			//console.log("jquery...")
+			$("#checkJson").click(function(){
+				console.log("click");
+				
+				/* var jsonStr = {name : ["홍길동", "이순신", "동길이"]}
+				console.log(jsonStr)
+				console.log(jsonStr.name)
+				console.log(jsonStr.name[0])
+				console.log(jsonStr.name[1])
+				console.log(jsonStr.name[2]) */
+				
+				//JSON 구조의 문자열
+				var jsonStr2 = '{"name" : ["홍길동", "이순신", "동길이"]}'
+				let jsonInfo = JSON.parse(jsonStr2);
+				console.log(jsonInfo);
+				
+				output += "<br>"
+				output += "===="
+				output += "<br>"
+				for(let idx in jsonInfo.name) {
+					output += jsonInfo.name[idx] + "<br>"
+				}
+				console.log(output); // 문자열
+				
+				$("#output").html(output) // HTML객체로 전환
+			})
+			
+			$("#checkJson2").click(function() {
+				console.log("click")
+				var jsonStr = '{"name" : "홍길동", "age" : 10, "gender" : "남자", "nickname" : "돌이"}';
+				
+				//문자열 -> 객체 전환
+				console.log(jsonStr); //문자열
+				var jsonObj = JSON.parse(jsonStr);
+				console.log(jsonObj);
+				
+				//객체 전환 -> 문자열
+				var jsonStr3 = JSON.stringify(jsonObj);
+				console.log(jsonStr3)
+				
+				//var 전역변수
+				var output = "<br>"
+				var output = "===="
+				var output = "<br>"
+				
+				output += "이름 : " + jsonObj.name + "<br>"; 
+				output += "나이 : " + jsonObj.age + "<br>"; 
+				output += "성별 : " + jsonObj.gender + "<br>"; 
+				output += "별명 : " + jsonObj.nickname + "<br>"; 
+				console.log(output);
+				
+				$("#output").html(output);
+			})
+			
+			$("#checkJson3").click(function(){
+				var jsonInfoArray = {
+					member: [
+						{name : "홍길동", age : 10, gender : "남자", nickname : "돌이"}, 
+						{name : "홍길동", age : 11, gender : "여자", nickname : "돌이"}, 
+						{name : "홍길동", age : 12, gender : "여자", nickname : "돌이"} 
+						]
+				};
+				console.log(jsonInfoArray);
+				console.log(jsonInfoArray.member[0].name, jsonInfoArray.member[0].age);
+				
+				//문자열로 전환
+				var jsonArrayStr = JSON.stringify(jsonInfoArray);
+				console.log(jsonArrayStr);
+				
+				//객체로 전환
+				var jsonObjArray = JSON.parse(jsonArrayStr);
+				console.log(jsonObjArray);
+			});
+		});
+	</script>
+</body>
+</html>

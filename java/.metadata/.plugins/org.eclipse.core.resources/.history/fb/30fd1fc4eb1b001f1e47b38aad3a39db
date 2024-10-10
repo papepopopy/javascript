@@ -1,0 +1,9 @@
+package chap11;
+
+public class DateClassCollectionTest {
+
+	public static void main(String[] args) {
+
+	}
+
+}

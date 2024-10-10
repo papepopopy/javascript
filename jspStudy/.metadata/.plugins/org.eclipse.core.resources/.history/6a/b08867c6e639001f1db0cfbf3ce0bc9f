@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<%@ include file="/include/bootstrap_include.jsp" %>
+
+</head>
+<body>
+	<div class="container">
+		<form action="memberRegister.jsp">
+			ID : <input type="text" name="user_id" class="form-control"/>
+			<br>
+			PW<input type="password" name="user_pw" class="form-control" />
+			<hr>
+			<div>
+				<input type="submit" value="로그인" class="btn btn-success" />
+				<input type="reset" value="다시입력" class="btn btn-danger" />
+			</div>
+		</form>
+	</div>
+</body>
+</html>

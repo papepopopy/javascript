@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행 준비물 점검 목록 만들기</title>
+    <style>
+        ul, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .contant {
+            margin: 0 50px;
+        }
+        .title {
+            text-align: center;
+        }
+        .input-box {
+            background-color: #257fe6;
+            padding: 40px 60px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .input-text {
+            border: 1px solid #eee;
+            background-color: #fff;
+            padding: 10px;
+            height: 25px;
+            width: 100%;
+        }
+        .add-btn {
+            border: 1px solid #eee;
+            background-color: #fff;
+            padding: 10px;
+            height: 49px;
+            width: 60px;
+            text-align: center;
+        }
+        .checklist-box li {
+            line-height: 25px;
+            padding: 15px 30px;
+            border-bottom: solid #999 1px;
+        }
+        .close-btn {
+            float: right;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contant">
+        <h1 class="title">여행 준비물 점검 목록</h1>
+        <div class="input-box">
+            <input class="input-text"></input>
+            <button class="add-btn">추가</button>
+        </div>
+        <ul id="item-list" class="checklist-box">
+            <li>test<span class="close-btn">x</span></li>
+            <li>test<span class="close-btn">x</span></li>
+            <li>test<span class="close-btn">x</span></li>
+        </ul>
+    </div>
+
+    <script>
+        // 태그 추가
+        var itemList = document.querySelector("#item-list")
+        var inputText = document.querySelector(".input-text")
+        var addBtn = document.querySelector(".add-btn")
+        var checkBox = document.querySelectorAll(".checklist-box")
+
+        addBtn.addEventListener("click", () => {
+            console.log("click")
+
+            // input-text의 데이터 읽기
+            inputValue = inputText.value.trim() 
+            console.log(inputValue) 
+
+            // 값이 없을 때
+            if(inputValue == "" || !inputValue) {
+                alert("추가할 내용이 없습니다")
+                inputText.focus()
+                return
+            }
+            
+            // li>value+span.close-btn 양식
+            const liElement = document.createElement("li") // liElement는 li로 정의
+            
+            itemList.innerHTML = liElement.inputValue+"<span class='close-btn'>x</span>"
+            
+            // log.innerHTML = myRange.value
+            console.log(liElement)
+            
+            // 값이 있을 때
+            if (itemList.childElementCount > 0 ){
+                console.log("리스트가 있을 때")
+                itemList.firstElementChild.before(liElement)
+                
+            } else {
+                console.log("리스트가 없을 때")
+                itemList.appendChild(liElement)
+            }
+
+            inputText.value = ""
+            inputText.focus()
+        })
+        inputText.addEventListener("keyup", (e) => {
+            if(e.keyCode == 13) {
+                addBtn.focus()
+            }
+        })
+
+
+
+
+    </script>
+</body>
+</html>

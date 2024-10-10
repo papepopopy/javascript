@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background-style02</title>
+    <style>
+        .bg {
+            display: inline-block;
+            width: 300px;
+            height: 500px;
+            border: 1px solid #555;
+            background-image: url(img/photo.jpg);
+            background-repeat: no-repeat;
+        }
+        .bg1 {
+            background-size: auto;
+            background-size: 100%;
+            background-size: 100% 50%;
+        }
+        .bg2 {
+            background-size: contain;
+            /* y축 100% */
+        }
+        .bg3 {
+            background-size: cover;
+            /* x축 100% */
+        }
+    </style>
+</head>
+<body>
+    <img src="img/cat.jpg" alt="고냥이">
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+</body>
+</html>

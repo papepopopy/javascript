@@ -1,0 +1,9 @@
+package ex03.vo;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+public class MemberBean {
+}

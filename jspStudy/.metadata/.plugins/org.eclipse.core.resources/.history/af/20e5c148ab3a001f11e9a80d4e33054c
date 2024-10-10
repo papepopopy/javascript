@@ -1,0 +1,14 @@
+package ex05.controller;
+
+import java.io.Console;
+
+import javax.servlet.annotation.WebServlet;
+
+@SuppressWarnings("serial")
+@WebServlet("/ajaxTest")
+public class AjaxTest1 {
+	@Override
+	protected void doget() {
+		Console.log("")
+	}
+}

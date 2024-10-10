@@ -1,0 +1,16 @@
+package chap11;
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class DateClassCollectionTest {
+
+	public static void main(String[] args) {
+		Calendar cal = Calendar.getInstance();
+		Date data = cal.getTime();
+		System.out.println(data); //Mon May 27 14:46:52 KST 2024
+		
+		System.out.println(cal.get(Calendar);
+	}
+
+}

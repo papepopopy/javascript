@@ -1,0 +1,11 @@
+package ex05.controller;
+
+import java.io.Console;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@SuppressWarnings("serial")
+@WebServlet("/ajaxTest")
+public class AjaxTest1 extends HttpServlet {
+}

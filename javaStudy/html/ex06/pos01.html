@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹요소 배치</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #b8b8b8;
+            margin-bottom: 5px;
+        }
+        .b-text {
+            border: 1px solid #000;
+        }
+        .box1 {
+            background-color: #ff0000;
+        }
+        .box2 {
+            position: relative;
+            top: 10px;
+            left: 10px;
+            background-color: #ff006a;
+            overflow: hidden;
+        }
+        .box02-01 {
+            /* position: absolute; */
+            bottom: 10px;
+            left: 10px;
+        }
+        .box3 {
+            position: fixed;
+            /* top: 0; */
+            /* left: 0; */
+            right: 0;
+            bottom: 0;
+            background-color: #ffa600;
+        }
+        .box4 {
+            background-color: #00ff00;
+        }
+        .box5 {
+            background-color: #008cff;
+        }
+        .box6 {
+            background-color: #2600ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">box1
+        <div class="box01-01 b-text">하위요소</div>
+    </div>
+    <div class="box box2">box2
+        <div class="box02-01 b-text">하위요소</div>
+    </div>
+    <div class="box box3">box3</div>
+    <div class="box box4">box4</div>
+    <div class="box box5">box5</div>
+    <div class="box box6">box6</div>
+</body>
+</html>
+
+<!-- 
+    position 속성 : 요소 배치 방식
+    static - 문서의 흐름
+    relative - 현재요소위치를 기준으로 배치지정
+    absolute - relative값을 사용하는 상위요소를 기준으로 배치
+    fixed - 브라우저 창을 기준으로 위치를 지정 
+-->

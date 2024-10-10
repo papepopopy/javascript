@@ -1,0 +1,58 @@
+package ex01.sample06;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@SuppressWarnings("serial")
+@WebServlet("serial")
+public class LoginSessionAccessCountTest extends HttpServlet {
+	ServletContext context = null;
+	List user_list = new Arraylist; 
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setCharacterEncoding("utf-8");
+		resp.setContentType("text/html; charset=utf-8");
+		
+		PrintWriter out = resp.getWriter();
+		
+		context = getServletContext();
+		HttpSession session = req.getSession();
+		
+		String id = req.getParameter("user_id");
+		String pw = req.getParameter("user_pw");
+		
+		LoginBindingListenerImpl loginUser = new LoginBindingListenerImpl(id, pw);
+		
+		if (session.isNew()) {
+			session.setAttribute("loginUser",loginUser);
+			
+			user_list.add(id);
+			context.setAttribute("user_list", user_list);
+		}
+		out.println("<html>");
+		out.println("<body>");
+		out.println("아이디 : "+loginUser.user_id+"<br>");
+		out.println("총 접속자 수 : "+LoginBindingListenerImpl.total_user+"<br>");
+		out.println("접속 아이디 : <br>");
+//		리스트로 뽑아내기
+		List list = (Arraylist) context.getAttribute("user_list");
+		for(int i=0; i<list.size(); i++) {
+			out.println(list.get(i)+"<br>");
+		}
+		out.println("<a href='logout?logout=user_id"+id+"'>로그아웃</a>");
+		
+		out.println("</body>");
+		out.println("</html>");
+		
+	}
+}

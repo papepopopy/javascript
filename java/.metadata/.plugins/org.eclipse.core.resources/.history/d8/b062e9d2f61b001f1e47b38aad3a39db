@@ -1,0 +1,35 @@
+package chap11;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegularExClass {
+	public static void main(String[] args) {
+		String str = "1234567890";
+		Pattern p = Pattern.compile("^[0-9]*$"); //문자열이 숫자로만 구성되어 있으며, 빈 문자열도 허용됨
+		Matcher m = p.matcher(str);
+		
+		System.out.println(m.find()); //true
+		System.out.println(str.matches("^[0-9]*$")); //true
+		
+		String[] str2 = {"ASDF12", "123456", "QWERTY", "as234aa", "1324kkk"};
+		String regex = "^[0-9A-Z]{6}$";
+		
+		for (String data : str2) {
+			System.out.printf("%s\t %b\n", data, data.matches(regex));
+//			ASDF12	 true
+//			123456	 true
+//			QWERTY	 true
+//			as234aa	 false
+//			1324kkk	 false
+		}
+		
+		String target = "sample@sample.com, test@test.co.kr, example@example.com";
+		String regex1 = "([\\w]*@[\\w](.com)";
+		
+		Pattern pattern = Pattern.compile(regex1);
+		Matcher matcher = Pattern.matcher(taget)
+		
+	}
+	
+}

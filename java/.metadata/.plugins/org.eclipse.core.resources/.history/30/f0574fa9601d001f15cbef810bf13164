@@ -1,0 +1,16 @@
+package chap13;
+
+public class SteamRange {
+
+	public static void main(String[] args) {
+		
+	}
+
+}
+
+class Board {
+	int no;
+	String title;
+	String user;
+	LocalDateTime createdate;
+}

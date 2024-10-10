@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제 2</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        ul, li {
+            list-style: none;
+        }
+        .navi ul {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        .navi li{
+            float: left;
+        }
+        .navi a:visited {
+            color: aqua;
+        }
+        .navi a:link {
+            width: 130px;
+            padding: 15px 0;
+            text-align: center;
+            display: inline-block;
+            background-color: #eee;
+            text-decoration: none;
+            color: red;
+            font-size: 16px;
+            border-right: 1px solid #888;
+            box-shadow: 5px 5px 5px #00000052;
+        }
+        .navi li a:hover {
+            background-color: #009973;
+            color: #fff;
+        }
+        .navi li:last-child a {
+            border-right: none;
+        }
+        .navi li:not(:last-child) a:hover {
+            background-color: #555;
+            color: #fff;
+        }
+        .navi li:last-child a:hover {
+            background-color: #ff0000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <nav class="navi">
+            <ul class="top-menu">
+                <li><a href="#">메뉴1</a></li>
+                <li><a href="https://www.naver.com/">메뉴2</a></li>
+                <li><a href="https://www.w3schools.com/ ">메뉴3</a></li>
+                <li><a href="#">메뉴4</a></li>
+                <li><a href="#">메뉴5</a></li>
+                <li><a href="#">메뉴6</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

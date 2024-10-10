@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP session</title>
+</head>
+<body>
+	<h1>session 테스트</h1>
+	<div>
+		isNew() : <%= session.isNew() %>
+		생성시간 : <%= session.getCreationTime() %>
+		최종접속시간 : <%= session.getLastAccessedTime() %>
+		세션 ID : <%= session.getId() %>
+	</div>
+</body>
+</html>

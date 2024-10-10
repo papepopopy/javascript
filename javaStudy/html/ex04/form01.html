@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 양식 학습하기</title>
+</head>
+<body>
+    <h2>폼 양식01</h2>
+    <hr>
+    name : <input type="text" />
+    <hr>
+    <h3>text 관련 태그</h3>
+    <form action="table01.html" method="get">
+    <!-- <form action="table01.html" method="post"> -->
+        <label id="id-title">ID : </label>
+        <input type="text" size="20" maxlength="5" name="id" id="id" placeholder="아이디를 입력해주세요" value="hongildong" />
+        <br>
+        <label id="id-title">ID : </label>
+        <input type="text" size="50" maxlength="5" name="fales-id" id="fales-id" placeholder="주인님 이녀석은 가짜입니다." />
+        <br>
+        <label id="id-title">password : </label>
+        <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력해주세요" />
+        <hr>
+        숨김 태그 <input type="hidden" name="hidden" value="1234">
+        <input type="submit" value="전송하기">
+        <input type="reset" value="입력취소">
+    </form>
+    <h3>선택요소 관련 태그</h3>
+    <form>
+        <b>정보공개 : </b>
+        <input type="radio" checked name="ra" value="1"> 공개 
+        <input type="radio" name="ra" value="0"> 비공개
+        <br>
+        <b>성별 : </b>
+        <input type="radio" checked name="ra2"> 남
+        <input type="radio" name="ra2"> 여
+        <br><br>
+        취미
+        <hr>
+        <input type="checkbox" name="chk1" value="1"/>탁구
+        <input type="checkbox" name="chk2" checked value="2"/>배드민턴
+        <input type="checkbox" name="chk3" value="3" />음악감상
+        <input type="checkbox" name="chk4" checked value="4" />악기연주
+        <br><br>
+        <b>이메일 : </b>
+        <select name="sel" size="3" multiple>
+            <option value="1">네이버</option>
+            <option value="2">다음</option>
+            <option value="3" selected>구글</option>
+            <option value="4">카카오</option>
+            <option value="5">직접</option>
+        </select>
+        <br>
+        <br>
+        <input type="file" name="filename">
+        <br>
+        <br>
+        <b>후기글 작성</b>
+        <br>
+        <textarea cols="50" rows="7" name="content"></textarea>
+        <hr>
+        <input type="submit" value="전송하기">
+        <input type="reset" value="초기화">
+    </form>
+</body>
+</html>

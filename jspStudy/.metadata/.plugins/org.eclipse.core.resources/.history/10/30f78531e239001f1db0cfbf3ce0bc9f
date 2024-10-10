@@ -1,0 +1,10 @@
+package ex03.vo;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Date
+@NoArgsConstructor
+@AllArgsConstructor
+public class MemberBean {
+}

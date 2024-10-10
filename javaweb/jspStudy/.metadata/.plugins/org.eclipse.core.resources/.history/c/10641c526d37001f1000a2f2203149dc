@@ -1,0 +1,10 @@
+package ex01.sample06;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/loginfilter")
+public class LoginFilterTest extends HttpServlet {
+//	Filter API
+	
+}

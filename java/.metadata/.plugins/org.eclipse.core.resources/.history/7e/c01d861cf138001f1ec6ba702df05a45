@@ -1,0 +1,45 @@
+package test.chapter20_02;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import chap21.ChatServerThread;
+
+//서버 프로그램 (서버 => 클라이언트)
+public class ChatServer {
+	
+	public static void main(String[] args) {
+		ServerSocket serversocket = null;
+		Socket socket = null;
+		
+		ChatServerThread thread; // 스레드 객체 선언(통신)
+		
+		try {
+			//서버 연결
+			serversocket = new ServerSocket(8882);
+			System.out.println("접속 대기 중");
+			
+			while(true) {
+				//접속
+				socket = serversocket.accept(); //소켓 생성
+				
+				// 소켓으로부터 접속자 닉네임 읽어오기
+				InputStream is = socket.getInputStream();
+				BufferedReader br = new BufferedReader(new InputStreamReader(is));
+				
+				String Name = br.readLine(); //닉네임
+				
+				System.out.println("접속IP : " + socket.getInetAddress());
+				System.out.println("접속자 : " + Name);
+				
+				//ChatServerThread에 소켓과 이름 초기화
+				thread = new ChatServerThread(socket, Name);
+				thread.start();
+			}
+		} catch (Exception e) {}
+		
+	}
+}

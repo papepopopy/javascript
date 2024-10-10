@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드교체</title>
+    <style>
+        .container {
+            border: 1px solid #aaa;
+            padding: 40px;
+            margin: 50px auto;
+        }
+        .old-box, .newbox {
+            border: 1px dotted rgb(255, 46, 255);
+            padding: 5px 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="re-btn">교체하기</button>
+        <button id="copy-btn">복사하기</button>
+        <div id="old-box">교체 전 박스</div>
+    </div>
+    <script>
+        // 1. html과의 연결을 확인한다!
+        const reBtn = document.querySelector("#re-btn")
+        const oldBox = document.querySelector("#old-box")
+        const copyBtn = document.querySelector("#copy-btn")
+        console.log(reBtn, oldBox)
+
+        // 2. 이벤트 확인하기
+        reBtn.addEventListener("click", () => {
+            // alert("교체하기")
+
+            var newBox = document.createElement("div")
+            newBox.textContent = "새로생성된 박스"
+            newBox.classList.add("new-box")
+
+            console.log("create div : ", newBox)
+            oldBox.replaceWith(newBox)
+        })
+
+        // 복사하기
+        copyBtn.addEventListener("click", () => {
+            var clonedBox = oldBox.cloneNode(true)
+            console.log(clonedBox)
+            document.querySelector(".container").appendChild(clonedBox)
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+package ex01.sample04;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+@SuppressWarnings("serial")
+@WebServlet("/second02")
+public class SecondServlet03 extends HttpServlet {
+	
+}

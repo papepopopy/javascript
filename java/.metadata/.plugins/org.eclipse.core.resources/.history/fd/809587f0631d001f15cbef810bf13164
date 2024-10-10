@@ -1,0 +1,36 @@
+package chap13;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+int cnt = 0;
+public class SteamRange {
+
+	public static void main(String[] args) {
+		List<Board> boardList = new ArrayList<Board>();
+		IntStream.range(1, 11).forEach(i -> {
+			boardList.add(new Board(i, "title_"+i, "user_"+i, LocalDateTime.now()));
+		});
+//		boardList.stream().forEach(System.out::println);
+//		int cnt = 0;
+		boardList.forEach(x -> {
+			System.out.println(x);
+			cnt++;
+		});
+	}
+
+}
+
+@AllArgsConstructor
+@Data
+class Board {
+	int no;
+	String title;
+	String user;
+	LocalDateTime createdate;
+}

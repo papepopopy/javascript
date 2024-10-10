@@ -1,0 +1,9 @@
+package chap13;
+
+public class StreamCollection {
+
+	public static void main(String[] args) {
+		List<String>
+	}
+
+}

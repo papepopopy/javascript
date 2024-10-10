@@ -1,0 +1,21 @@
+package ex01.sample04;
+
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@SuppressWarnings("serial")
+@WebServlet("/cset")
+public class SetServletContext extends HttpServlet {
+
+	resp.setContentType("text/html; charset=utf-8");
+	PrintWriter writer = resp.getWriter();
+	
+	ServletContext ctx = getServletContext();
+	
+	List<MemberVO> vo = new ArrayList<E>()
+}

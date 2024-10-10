@@ -1,0 +1,47 @@
+package test.chapter20_01;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.Socket;
+
+public class N00ChatRecvThread extends Thread {
+
+	// 클라이언트가 수신한 메시지를 콘솔로 출력하는 프로그램
+	
+	
+	
+	Socket socket = null; //클라이언트와 연결된 소켓 객체
+	InputStream is = null; // 입력 스크림
+	BufferedReader br = null; //버퍼링 된 입력 스트림
+	BufferedWriter bw = null; //문자열 출력
+	
+	String inMessage = null; //서버 메시지를 저장
+	
+	
+	// 생성자
+	public N00ChatRecvThread(Socket socket) {
+		this.socket = socket; // 생성자에게 전달 받은 소켓 객체 
+	}
+	
+	@Override
+	public void run() {
+		try {
+			is = socket.getInputStream(); // 입력 스트림
+			br = new BufferedReader(new InputStreamReader(is)); // 입력 스트림 버퍼링 후 문자열 변환 
+	
+			while(true) {
+				inMessage = br.readLine(); // 예외
+				
+				// 소켓으로 부터 더이상 읽어올 메시지가 없으면 예외처리하여 while빠져나옴
+				if (inMessage == null) {
+					throw new IOException();
+				}
+				System.out.println(inMessage);
+			}
+		} catch (Exception e) {}
+
+	}
+}

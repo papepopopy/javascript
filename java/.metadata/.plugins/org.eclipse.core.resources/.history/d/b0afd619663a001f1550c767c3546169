@@ -1,0 +1,19 @@
+package sample03;
+
+import java.util.Scanner;
+
+public class test06 {
+	public static void main(String[] args) {
+		//BufferedReader와 BufferedWriter를 사용할 수 있다. 
+		//BufferedWriter.flush는 맨 마지막에 한 번만 하면 된다.
+		
+//		테스트케이스의 개수 T
+		Scanner scanner = new Scanner(System.in);
+		int T = scanner.nextInt();
+		
+		if (T<=1000000) {
+			int A = scanner.nextInt();
+			int B = scanner.nextInt();
+		}
+	}
+}

@@ -1,0 +1,81 @@
+package ex01.sample03.dao;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import ex01.sample02.service.MemberDAOService;
+import ex01.sample03.vo.MemberVO;
+
+//DB처리
+
+public interface MemberDAO{
+	
+	//회원 등록
+	public int regMember(MemberVO memberVO) {
+		int result = 0;
+		
+		String sql = "";
+		try {
+			conn = dataSource.getConnection();
+			sql = "select into t_member (id, name, pwd, email) values(?, ?, ?, ?)";
+			//date 부분은 해당 날짜로
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberVO.getId());
+			pstmt.setString(2, memberVO.getName());
+			pstmt.setString(3, memberVO.getPwd());
+			pstmt.setString(4, memberVO.getEmail());
+			
+			result = pstmt.executeUpdate();
+			pstmt.close();
+			
+		} catch (Exception e) {}
+		
+		return result;
+	}
+	
+	//회원 수정
+	public int modMember(MemberVO memberVO) {
+		int result = 0;
+		return result;
+	}
+	
+	//회원 조회
+	public MemberVO viewMember (String id) {
+		MemberVO vo = new MemberVO();
+		return vo;
+	}
+	
+	//회원 삭제
+	public int removeMember(MemberVO memberVO) {
+		int result = 0;
+		return result;
+	}
+	
+	
+	//db 연결
+	private void connDB() {
+		
+//		컨넥션 풀에서 적용되어 미사용되어진다.
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			System.out.println("OracleDriver 로딩 성공");
+
+//			conn = DriverManager.
+//					getConnection(url,user,pwd);
+			System.out.println("Connection 성공");
+		} catch (ClassNotFoundException e) {
+			System.err.println("OracleDriver 로딩 실패: " + e.getMessage());
+		} catch (Exception e) {
+			System.err.println("Connection 실패: " + e.getMessage());
+		}
+	}
+}

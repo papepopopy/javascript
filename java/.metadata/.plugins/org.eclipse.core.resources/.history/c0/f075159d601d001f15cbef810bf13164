@@ -1,0 +1,14 @@
+package chap13;
+
+public class SteamRange {
+
+	public static void main(String[] args) {
+		
+	}
+
+}
+
+class Board {
+	int no;
+	
+}

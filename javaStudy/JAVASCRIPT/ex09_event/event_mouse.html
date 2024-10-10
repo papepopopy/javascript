@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이벤트 처리</title>
+    <style>
+        .box1 .log2 {
+            width: 300px;
+            height: 300px;
+            background-color: #fff000;
+
+            margin: 0 auto;
+        }
+        .log2_box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h3>링크</h3>
+    <hr>
+    <ul>
+        <li><a href="https://www.naver.com/" class="link01">naver</a></li>
+        <li><a href="https://www.daum.net/" class="link02">daum</a></li>
+    </ul>
+    <h3>이벤트 작동 설정하기</h3>
+    <div class="box3">
+        <button class="btn10">버튼 작동하기</button>
+        <button class="btn11">버튼 Event</button>
+    </div>
+
+    <hr>
+    <h3>윈도우 리사이징 이벤트</h3>
+    <div class="box2">
+        <p>window width : <span id="widthLog">0</span></p>
+        <p>window height : <span id="heightLog">0</span></p>
+    </div>
+    <hr>
+
+    <h3>키보드 입력 이벤트</h3>
+    <hr>
+    <textarea class="textarea" cols="30" rows="10"></textarea>
+    <p>현재 <span class="string_num">0</span>문자를 입력 중입니다.</p>
+    <h3>mousedouwn / mouseup / mousemove</h3>
+    <hr>
+    <div class="box1">
+        <div class="log2">
+            <div class="log2_box"></div>
+        </div>
+    </div>
+    <script>
+        // 기본 이벤트 작동 해지
+        document.querySelector(".link01").addEventListener("click", (e) => {
+            e.preventDefault()
+            alert("링크 테스트")
+        })
+        
+
+        //버튼 작동하기
+        const button10 = document.querySelector(".btn10")
+        const button11 = document.querySelector(".btn11")
+
+        console.log(button10, button11)
+
+        button10.addEventListener("click",() => {
+            alert("버튼 작동하기 ... ")
+            // button11.dispatchEvent(new Event("click"))
+            button11.click()
+        })
+        button11.addEventListener("click",() => {
+            alert("버튼 Event")
+        })
+
+
+        const widthLog = document.querySelector("#widthLog")
+        const heightLog = document.querySelector("#heightLog")
+        console.log(widthLog, heightLog)
+
+        widthLog.innerText = window.innerWidth + "px"
+        heightLog.innerText = window.innerHeight + "px"
+
+        window.addEventListener("resize", () => {
+            widthLog.innerText = window.innerWidth + "px"
+            heightLog.innerText = window.innerHeight + "px"
+        })
+
+        // 키보드 이벤트
+        // document.querySelector(".textarea").addEventListener("keydown", () => {
+        //     console.log("키 눌림")
+        // })
+        // document.querySelector(".textarea").addEventListener("keyup", () => {
+        //     console.log("키 눌림 해제")
+        // })
+        // document.querySelector(".textarea").addEventListener("keypress", () => {
+        //     console.log("문자가 입력되었습니다.")
+        // })
+        /*
+        const textarea = document.querySelector(".textarea")
+        const string_num = document.querySelector(".string_num")
+
+        textarea.addEventListener("keyup", (e) => {
+            const inputText = textarea.value
+            string_num.innerHTML = inputText.length;
+
+            // 키 정보
+            console.log(e)
+            // console.log(e.key) 
+            // console.log(e.code)
+            // console.log(e.keyCode)
+            // console.log("altkey:", e.altKey) 
+        })
+
+
+
+        const logArea = document.querySelector('.log2')
+        const logArea02 = document.querySelector('.log2_box')
+        // console.log(logArea)
+
+        logArea.addEventListener("mousedown", () => {logArea.innerHTML="마우스 클릭"})
+        logArea.addEventListener("mouseup", () => {logArea.innerHTML="마우스 클릭해제"})
+        // logArea.addEventListener("mousemove", () => {logArea.innerHTML="마우스 드래그"})
+
+        // logArea.addEventListener("mouseenter", () => {console.log("마우스 영역 진입")})
+        // logArea.addEventListener("mouseleave", () => {console.log("마우스 영역 진출")})
+
+        // logArea.addEventListener("mouseenter", () => {console.log("Mouseevent")})
+        // logArea.addEventListener("mouseleave", () => {console.log("Mouseleave")})
+
+        logArea.addEventListener("mouseover", () => {console.log("mouseover 할때")})
+        logArea.addEventListener("mouseout", () => {console.log("mouseout 할때")})
+        */
+    </script>
+</body>
+</html>

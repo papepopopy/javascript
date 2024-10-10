@@ -1,0 +1,10 @@
+package ex01.sample03.dao;
+
+import java.sql.Date;
+
+import lombok.Data;
+
+
+public interface MemberDAOImpl {
+	public List<MemberVO> listMembers();
+}

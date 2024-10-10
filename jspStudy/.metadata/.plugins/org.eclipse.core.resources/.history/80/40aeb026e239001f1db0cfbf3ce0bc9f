@@ -1,0 +1,12 @@
+package ex03.vo;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+public class MemberBean {
+	@NoArgsConstructor
+	@AllArgsConstructor
+	public static void main(String[] args) {
+		
+	}
+}

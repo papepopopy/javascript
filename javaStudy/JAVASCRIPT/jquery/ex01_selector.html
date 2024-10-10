@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 선택지</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script> -->
+
+    <script>
+        $(document).ready(function(){}) //document 객체 로딩시 처리 => 스크립트를 아래로 내린것과 동일
+        $(function(){
+            console.log("jquery ok...")
+
+            // $("h1").css("color", "red")
+            $("h3").css("color", "red") //변수를 만들지 않아도 괜찮음
+
+            $("#title").css({
+                // 1개 이상은 블럭을 하여 쓴다.
+                // "border":"1px solid rgb(246 202 0)",
+                // "background-color":"rgb(246 202 0)"
+
+                border:"1px solid rgb(246 202 0)",
+                backgroundColor:"rgb(246 202 0)"
+            })
+            $(".ti")
+            .css("background-color","#0ff")
+            .css("border","2px dashed #f00")
+            $("h2, h3").css("font-size","24px")
+            $(".container h1").css("padding","30px").css("border","1px solid #000")
+
+            // 자식요소
+            $(".box2>h1").css("color","red")
+            const el = $('.box2')
+            // $(".box2").children("h1").css("color","blue")
+            // el.children("h1").css("color","blue")
+            el.find(">h1").css("color","blue")
+            // el.children().css("border","2px solid #489a01")
+
+            // 동위 선택자(형제요소선택자)
+            $(".box2>.txt+p").css("color","green")
+
+            var style_1 = {
+                "background-color":"#18f5",
+                "border":"1px solid #f00"
+            }
+
+            var style_2 = {
+                "background-color" : "#ccc",
+                "color" : "red"
+            }
+
+            // $(".txt").next().next().next().css(style_1)
+            // $(".txt").prev().css(style_1)
+            // $(".txt").css(style_1)
+
+            // $(".txt").nextAll().css(style_1)
+            // $(".txt").prevAll().css(style_1)
+            // $(".txt").siblings().css(style_1)
+
+            // 상위요소 선택자
+            // $("#sec").parents("div").css(style_1)
+            // $("#sec").parents().css(style_1)
+            $("#sec>h1").closest("div").css(style_1)
+
+        })
+
+    </script>
+</head>
+<body>
+    <div class="box2">
+        <h1>인접 선택자</h1>
+        <p class="txt">내용 2(동접 선택자)</p>
+        <div>
+        <p>내용 1</p>
+            <section id="sec">
+                <h1>자식 요소</h1>
+                <p>내용</p>
+            </section>
+        </div>
+        <p>내용 3(동접 선택자)</p>
+    </div>
+    <div class="container">
+        <h1>제이쿼리</h1>
+        <h2 id="title">선택자</h2>
+        <h3 class="ti">직접선택자</h3>
+        <h3>인접선택자</h3>
+    </div>
+</body>
+</html>

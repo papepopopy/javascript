@@ -1,0 +1,112 @@
+package test.chapter20_01;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+
+public class N04ChatServerThread extends Thread {
+	
+//	N04ChatServerThread는 클라이언트로부터 메시지를 수신하고, 수신된 메시지를 sendMessageAll 메서드를 통해 모든 클라이언트에게 전송합니다.
+//	각 클라이언트는 N00ChatRecvThread를 통해 서버로부터 메시지를 수신하고 콘솔에 출력합니다.
+//	클라이언트는 사용자 입력을 통해 메시지를 서버로 전송합니다. 이 메시지는 다시 모든 클라이언트에게 전달됩니다.
+	
+	//3번째 실행
+	
+	
+	//각각의 클라이언트에 메시지를 전달하는 스레드 list
+	private static List<N04ChatServerThread> threads = new ArrayList<N04ChatServerThread>();
+	
+	// 클라이언트와의 연결을 위한 소켓
+	private Socket socket = null;
+	
+	//입력 스트림
+	InputStream is = null;
+	
+	//출력 스트림
+	OutputStream os = null;
+	
+	//입력 스트림 
+	BufferedReader br = null;
+	
+	//출력 스트림
+	BufferedWriter bw = null;
+	
+	//메세지 보내기
+	PrintWriter writer = null;
+	
+	//클라이언트에게 수신한 메시지
+	String message = null;
+	
+	//클라이언트 닉네임
+	String nickName = null;
+	
+	//생성자
+	public N04ChatServerThread(Socket socket, String nickName) {
+		this.nickName = nickName;
+		this.socket = socket;
+		
+		//새로운 클라이언트 스레드를 리스트 추가
+		threads.add(this);
+	}
+ 	
+	@Override
+	public void run() {
+		try {
+			// 클라이언트와의 통신을 위한 입력 및 출력 스트림 초기화
+			is = socket.getInputStream();
+			os = socket.getOutputStream();
+			
+			//출력 스트림에 쓰기 위한 초기화
+			bw = new BufferedWriter(new OutputStreamWriter(os));
+			writer = new PrintWriter(bw, true);
+			writer.print("서버에 접속 되었습닌다.");
+			
+			while(true) {
+				//입력 스트림의 데이터 읽기를 위한 초기화 
+				
+				br = new BufferedReader(new InputStreamReader(is));
+				message = br.readLine();
+				
+				if (message == null) {
+				//소켓 메시지가 없을 시
+					throw new IOException();
+				}
+				
+				//현재 메시지를 모든 클라이언트에게 전송
+				sendMessageAll(message);
+			}
+		} catch (Exception e) {}
+	}
+
+	//sendMessageAll 메소드 생성
+	private void sendMessageAll(String message) throws Exception {
+		N04ChatServerThread thread = null;
+		
+		for (int i=0; i<threads.size(); i++) { //추가된 메세지 만큼
+			thread = threads.get(i);
+			//해당 스레드 종료 확인
+			
+			if (thread.isAlive()) {
+				thread.sendMessage(message);
+			}
+			
+		}
+		//서버 콘솔로 출력
+		System.out.println(message);
+	}
+
+	//특정 클라이언트에게 메시지 전송 
+	//sendMessage 메소드 생성
+	private void sendMessage(String message2) throws Exception {
+		writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
+		writer.print(message);
+	}
+}

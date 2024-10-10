@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+</head>
+<body>
+    <div>
+        <button class="btn01">버튼01</button>
+        <button class="btn02" id="id_btn02" data-num="100">버튼02</button>
+        <button class="btn03" onClick="alert('button03 클릭 이벤트가 발생했습니다.')">버튼03</button>
+        <button class="btn04" data-num="100"">버튼04</button>
+        <div class="btn_mess"></div>
+        <hr>
+        <button class="btn05">이벤트 1회 실행하기</button>
+        <hr>
+        <button class="btn06">버튼06</button>
+        <button class="btn07">버튼07(버튼 6 이벤트 삭제)</button>
+        <div class="btn_mess"></div>
+    </div>
+    <script>
+        const button01 = document.querySelector('.btn01')
+        const button02 = document.querySelector('.btn02')
+        const button04 = document.querySelector('.btn04')
+        const button05 = document.querySelector('.btn05')
+        const button06 = document.querySelector('.btn06')
+        const button07 = document.querySelector('.btn07')
+        
+        // 이벤트 삭제하기
+        button06.addEventListener("click", onClickBtn06)
+        function onClickBtn06() {
+            alert("버튼06")
+        }
+        
+        button07.addEventListener("click", ()=>{
+            // alert("버튼7")
+            // button06 버튼 삭제
+            button06.removeEventListener("click", onClickBtn06)
+            alert("버튼06 이벤트가 삭제되었습니다.")
+        })
+
+
+        // 이벤트 1회 실행
+        // 옵션 지정
+        const option = { once : true }
+        button05.addEventListener("click", () => {alert("버튼 05 클릭")}, option)
+
+        
+        
+        // console.log(button) 
+        
+        // 자바환경
+        
+        // 이벤트 등록 ; js 소스 처리하는 방법
+        // 이벤트 타킷 .addEventListerner(이벤트 종류, 수행할 함수(리스너), 옵션)
+
+        button01.addEventListener("click", () => {
+            document.querySelector(".btn_mess").textContent = "button01 클릭 이벤트가 발생했습니다."
+        })
+        
+        button02.addEventListener("click", onClickButton)
+        button04.addEventListener("click", onClickButton)
+        function onClickButton(e) {
+            console.log(e)
+            if (e.target.className == "btn2") {
+                document.querySelector(".btn_mess").textContent = "button02 클릭 이벤트가 발생했습니다."
+            } else {
+                document.querySelector(".btn_mess").textContent = "button04 클릭 이벤트가 발생했습니다."
+            }
+        }
+
+
+        // button02.addEventListener("click", onClickButton)
+        // button04.addEventListener("click", onClickButton)
+        // function onClickButton(e) {
+        //     console.log(e)
+        //     if (e.target.className == "btn2") {
+        //         document.querySelector(".btn_mess").textContent = "button02 클릭 이벤트가 발생했습니다."
+        //     } else {
+        //         document.querySelector(".btn_mess").textContent = "button04 클릭 이벤트가 발생했습니다."
+        //     }
+        // }
+    </script>
+</body>
+</html>

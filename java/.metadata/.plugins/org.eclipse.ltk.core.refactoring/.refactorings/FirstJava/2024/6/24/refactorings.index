@@ -1,0 +1,61 @@
+1718073520825	Rename type 'AwtEventTest'
+1718073999675	Copy compilation unit
+1718076177148	Rename type 'AwtEventTest04'
+1718082189681	Copy compilation unit
+1718082214165	Delete element
+1718082236693	Rename compilation unit 'JOptionPane.java'
+1718088696721	Rename compilation unit 'JTable.java'
+1718096689536	Copy packages
+1718096700730	Rename package 'chap18.controller.copy'
+1718096705383	Rename package 'chap18.model.copy'
+1718096721984	Move compilation unit
+1718096762387	Rename package 'chap18.controller'
+1718096767682	Rename package 'chap18.model'
+1718096780601	Copy packages
+1718096788070	Delete element
+1718096810428	Rename package 'controller.copy'
+1718096821059	Rename package 'model.copy'
+1718096831030	Move compilation unit
+1718096858376	Copy compilation unit
+1718096875401	Copy compilation unit
+1718096879740	Delete element
+1718096888230	Rename package 'chap18.controller.copy'
+1718096916699	Move compilation unit
+1718096919748	Delete element
+1718096967087	Rename package 'chap18.model.copy'
+1718097351653	Rename compilation unit 'MoviController.java'
+1718097357313	Rename type 'MovieWindowView'
+1718098817572	Rename type 'MoviController'
+1718098830051	Rename compilation unit 'MovieController.java'
+1718098867076	Rename compilation unit 'MovieModel.java'
+1718098900912	Rename package 'chap18.controller'
+1718098935841	Rename package 'contoller'
+1718098983878	Copy package
+1718098987897	Copy package
+1718098996500	Delete elements
+1718152513787	Delete element
+1718152521587	Delete element
+1718160586442	Delete element
+1718160629970	Rename package 'chap19.rentCar.common'
+1718160770553	Rename package 'chap19.rentCar.res'
+1718160993965	Move compilation unit
+1718161004184	Rename resource 'Untitled 1'
+1718164430338	Copy package
+1718164434016	Delete element
+1718164505371	Delete element
+1718170578825	Rename type 'MemberControllerDAO'
+1718171125805	Rename type 'AbstractBaseDAQ'
+1718171227318	Rename type 'Membervo'
+1718175516214	Rename package 'chap19.common'
+1718190252909	Move file
+1718190433023	Delete element
+1718190518207	Delete element
+1718190548310	Delete element
+1718190652225	Delete element
+1718190663794	Rename package 'chapter02.common.base'
+1718190667302	Rename package 'chapter02.member.vo'
+1718190670291	Rename package 'chapter02.member.dao'
+1718190672914	Rename package 'chapter02.member.controller'
+1718190675449	Rename package 'chapter02.main'
+1718239104292	Delete element
+1718248660335	Rename package 'chap19.window'

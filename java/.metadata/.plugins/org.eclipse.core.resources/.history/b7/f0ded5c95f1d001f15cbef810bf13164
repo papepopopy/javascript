@@ -1,0 +1,33 @@
+package chap13;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class StreamCollection {
+
+	public static void main(String[] args) {
+		List<String> list1 = new ArrayList<String>();
+		var list2 = new HashSet<Integer>();
+		
+		list1.add("dog1");
+		list1.add("dog2");
+		list1.add("dog3");
+		list1.add("dog1");
+
+		list2.add(3);
+		list2.add(5);
+		list2.add(6);
+		list2.add(3);
+		
+		Stream<String> arrStrm1 = list1.stream();
+		Stream<Integer> arrStrm2 = list2.stream();
+		
+		arrStrm1.forEach(System.out::println);
+		arrStrm2.distinct().forEach(System.out::println);
+		
+		String[] arr1 =null;
+	}
+
+}

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 5000px;
+            height: 10000px;
+            background-color: aqua;
+        }
+        .div01 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(212, 209, 16);
+            margin-bottom: 20px;
+        }
+        .div02 {
+            width: 50px;
+            height: 50px;
+            background-color: #ff0000;
+        }
+        .wrap {
+            /* position: fixed;
+            left: 50px;
+            top: 50px; */
+            background-color: #00a1799a;
+            padding: 10px;
+            border: 1px solid #888;
+        }
+        
+    </style>
+    <script>
+        $(function() {
+            console.log("jquery ok...")
+            /*
+            //1. 이벤트 종류 함수() 호출
+            $(".btn01").click(function() {
+                console.log("btn01 click")
+            })
+
+            // 2. on함수 호출
+            $(".btn01").on("click", function() {
+                console.log("btn01 click")
+            })
+
+            //3. 2개 이상의 함수 호출
+            $(".btn01").on({
+                "click": function(){
+                    console.log("btn01 click")
+                },
+                // "click": function(){}, 두개 이상의 명령 가능
+            })
+            */
+
+            $(".btn01").on("click",function(){
+                $(".btn01").parent().next().css({ //속도가 느려진다.
+                    "color":"#f00"
+                })
+                $(this).parent().next().css({
+                    "background-color":"#00f"
+                })
+            })
+
+            $(".btn02").on({
+                "click":function(){
+                    $(this).parent().next().css({
+                        "padding":"10px",
+                        "margin":"10px",
+                        border : "red solid 1px" //앞의 명령어 경우 ""안해도 됨
+                    })
+
+                    // 강제 이벤트 발생
+                    // $(".btn01").trigger("click") 
+
+                    // 이벤트 제거
+                    $(".btn01").off("click")
+                }
+            })
+
+            $(".link01 a").click(function(e){
+                // console.log("a click...")
+                e.preventDefault() //기본이벤트 제거
+                alert("클릭")
+
+                for(var i=1;i<=10;i++){
+                    console.log(i)
+                }
+                location.href="https://www.google.co.kr/"
+            })
+
+            $(".div01").on({
+                /*
+                "mouseover":function(){
+                    console.log("mouse over")
+                },
+                "mouseout":function(){
+                    console.log("mouse out")
+                }
+                */
+
+                // "mouseenter":function(){
+                //     console.log("mouse enter")
+                // },
+                // "mouseleave":function(){
+                //     console.log("mouse leave")
+                // }
+            })
+
+            $(document).on("mousemove",function(e){
+                // console.log("mousemove")
+                $(".div01").text(e.pageX+","+e.pageY) //좌표값 알기
+            })
+
+            // scroll 이벤트 원도우
+            $(window).on("scroll", function(){
+                var top = $(this).scrollTop()
+                var left = $(this).scrollLeft()
+
+                $(".top").text(top)
+                $(".left").text(left)
+            })
+
+            $("#user_id, #user_pw").on("focus", function(){
+                $(this).css({
+                    "background-color":"blue"
+                })
+            })
+            $("#user_id, #user_pw").on("blur", function(){
+                $(this).css({
+                    "background-color":"yellow"
+                })
+            })
+
+            // 대상요소의 하위요소
+            $("#frm02").on("focusin", function(){
+                $(this).css({
+                    "background-color":"blue"
+                })
+            })
+            $("#frm02").on("focusout", function(){
+                $(this).css({
+                    "background-color":"yellow"
+                })
+            })
+
+            // $(document).on("keydown",keyEventFnc)
+            // function keyEventFnc(e) {
+            //     console.log(e)
+            //     // console.log(e.keyCode)
+
+            //     var direct = ""
+            //     switch(e.keyCode) {
+            //         case 37:
+            //             direct = "LEFT"
+            //             break;
+            //         case 38:
+            //             direct = "TOP"
+            //             confirm("TOP") //팝업창
+            //             break;
+            //         case 39:
+            //             direct = "RIGHT"
+            //             prompt("right") // 입력창
+            //             break;
+            //         case 40:
+            //             break;
+            //         direct = "BOTTOM"
+            //             break;
+            //     }
+            //     if(direct) //값이 없을 때
+            //     $("#user_id02").val(direct)
+            // }
+            // $(document).on("keypress", keyEventFnc02)
+            // function keyEventFnc02(e) {
+            //     console.log(e)
+
+            //     var direct = ""
+            //     if(e.keyCode === 13) {
+            //         direct = "enter"
+            //     }
+            //     if(direct)
+            //     $("#user_id03").val(direct)
+            // }
+        })
+
+    </script>
+</head>
+<body>
+    <div class="test">
+        <input type="text" id="user_id03">
+        <input type="text" id="user_pw03">
+    </div>
+    <div class="box04">
+        <input type="text" id="user_id02">
+    </div>
+    <div class="box03" id="frm01">
+        <form action="#">
+            <input type="text" id="user_id">
+            <input type="text" id="user_pw">
+        </form>
+        <form action="#" id="frm02">
+            <input type="text" id="user_id">
+            <input type="text" id="user_pw">
+        </form>
+    </div>
+    <div class="wrap">
+        scrollTop: <span class="top">0</span>px
+        scrollLeft: <span class="left">0</span>px
+    </div>
+    <div class="box02">
+        <div class="div01">
+            작업영역
+            <div class="div02">
+                 작업영역 01_01
+            </div>
+        </div>
+    </div>
+    <div class="box01">
+        <div>
+            <button class="btn01">버튼1</button>
+        </div>
+        <div>btn01 클릭 메세지</div>
+        <div>
+            <button class="btn02">버튼2</button>
+        </div>
+        <div>btn02 클릭 메세지</div>
+        <div class="link01">
+            <a href="https://www.google.co.kr/" target="_blank">Google</a>
+        </div>
+    </div>
+
+    <!-- 
+        이벤트 등록 방식 3가지
+
+        $("이벤트 대상").on("이벤트 종류1, 이벤트 종류2 ...", 함수식 or 함수)
+        $("이벤트 대상").on({"이벤트 종류1, 이벤트 종류2 ..." : 함수식 or 함수})
+        $("이벤트 대상").on({
+            "이벤트 종류1": 함수식,
+            "이벤트 종류2": 함수식,
+            "이벤트 종류3": 함수식,
+        })
+        $("이벤트 대상").이벤트 종류(함수식)
+
+    -->
+</body>
+</html>

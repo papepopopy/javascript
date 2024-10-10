@@ -1,0 +1,23 @@
+package ex01.sample03.dao;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import ex01.sample03.vo.MemberVO;
+
+//DB처리
+public interface MemberDAO {
+    List<MemberVO> listMembers();
+    int regMember(MemberVO memberVO);
+    int modMember(MemberVO memberVO);
+    MemberVO viewMember(String id);
+    int removeMember(MemberVO memberVO);
+}

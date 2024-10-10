@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>슬라이드 쇼</title>
+    <style>
+        .slide-box {
+            width: 300px;
+            height: 100px;
+            background-color: #00000020;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide-show {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1500px;
+        }
+        .slide-show .slide {
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            width: 300px;
+            height: 100px;
+            background-color: #00000050;
+            float: left;
+        } 
+        .slide img {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <script>
+        $(function(){
+            var slides = $(".slide-show .slide")
+            // console.log(slides)
+
+            // $(selector).each(function(idx, item))
+            // $.each(Object, function(idx, item))
+            
+            // 슬라이드 배치
+            slides.each(function(idx, slides){
+                console.log(idx, slides, idx*300)
+                $(this).css({
+                    "left":(idx*300)+"px"
+                })
+            })
+
+            
+            var slideShowLeft = 0
+
+            $(".rBtn").click(function(){
+                
+                slideShowLeft -= 300
+                console.log("left:", slideShowLeft)
+
+                // 0px 일때 1page
+
+                if(slideShowLeft < (slides.length-1)*-300) {
+                    // slideShowLeft = (slides.length-1)*-300
+                    slideShowLeft = slideShowLeft+(slides.length)*+300
+                }
+               $(".slide-show").stop().animate({
+                //    "left":"-300px",
+                    "left":(slideShowLeft)+"px"
+                //    "left":"slideShowLeft"+"px"
+                },1000)
+            })
+
+            $(".lBtn").click(function(){
+                slideShowLeft += 300
+                // console.log("left:", slideShowLeft)
+
+                if(slideShowLeft > 0) {
+                    slideShowLeft = 0 
+                }
+                $(".slide-show").stop().animate({
+                    "left" : (slideShowLeft)+"px"
+               }, 1000)
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <button class="lBtn">
+                왼쪽
+            </button>
+            <button class="rBtn">
+                오른쪽
+            </button>
+        </div>
+        <div class="slide-box">
+            <div class="slide-show">
+                <div class="slide slide-1"><img src="img/math_img_3.jpg" alt=""></div>
+                <div class="slide slide-2"><img src="img/math_img_1.jpg" alt=""></div>
+                <div class="slide slide-3"><img src="img/math_img_2.jpg" alt=""></div>
+                <div class="slide slide-4"><img src="img/math_img_3.jpg" alt=""></div>
+                <div class="slide slide-5"><img src="img/math_img_1.jpg" alt=""></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소(node) 가져오기</title>
+    <style>
+        .numbers {
+            width: 300px;
+            display: flex;
+            border: solid 1px #555;
+            margin: 0;
+            padding: 0;
+        }
+        .numbers > li {
+            margin: 5px;
+            padding: 5px 10px;
+            border: solid 1px #555;
+        }
+        ul li {
+            list-style: none;
+            flex: 1;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3>Node read</h3>
+    <hr>
+    <div class="buttons">
+        <button id="btn1">첫번째 자식노드</button>
+        <button id="btn2">마지막 자식노드</button>
+        <button id="btn3">다음노드</button>
+        <button id="btn4">이전노드</button>
+        <button id="btn5">부모노드</button>
+    </div>
+    <br>
+    <div class="nodes">
+        <ul class="numbers">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script>
+        const buttons = document.querySelectorAll(".buttons button")
+        // const btnArrays = [...buttons] 유사배열 => 배열
+        console.log(buttons)
+        const parentNumber = document.querySelector(".numbers")
+
+        for (let button of buttons) {
+            console.log(buttons)
+
+            button.addEventListener("click", (e) => {
+                // console.log(e)
+                // console.log(e.target.id)
+
+
+                let btn_gubun = event.target.id
+                switch(btn_gubun) {
+                    case "btn1":
+                    // alert("button1")
+                    const first = parentNumber.firstElementChild
+                    console.log(first)
+                    alert(first.innerText)
+
+                    break;
+                    case "btn2":
+                    // alert("button2")
+                    const last = parentNumber.lastElementChild
+                    console.log(last)
+                    alert(last.innerText)
+                    break;
+
+                    case "btn3":
+                    // alert("button3")
+                    // first = parentNumber.firstElementChild
+
+                    const next = parentNumber.firstElementChild.nextElementSibling
+                    alert(next.innerText)
+                    break;
+                    
+                    case "btn4":
+                    // alert("button4")
+                    const prev = parentNumber.lastElementChild.previousElementSibling
+                    alert(prev. innerText)
+                    break;
+                    
+                    case "btn5":
+                    // alert("button5")
+                    const parentNude = parentNumber.firstElementChild.parentNode
+                    // alert(parentNude)
+                    consol.log(parentNode)
+                    break;
+                }
+            })
+        }
+    </script>
+</body>
+</html>

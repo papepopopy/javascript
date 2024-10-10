@@ -1,0 +1,7 @@
+package ex01.sample01;
+
+import javax.servlet.http.HttpServlet;
+
+public class ThirdServlet extends HttpServlet {
+	
+}

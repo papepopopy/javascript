@@ -1,0 +1,12 @@
+package ex01.sample03.dao;
+
+import ex01.sample03.vo.MemberVO;
+
+//DB처리
+public interface MemberDAO {
+    List<MemberVO> listMembers();
+    int regMember(MemberVO memberVO);
+    int modMember(MemberVO memberVO);
+    MemberVO viewMember(String id);
+    int removeMember(MemberVO memberVO);
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* :link, :visited, :hover, :active */
+        .navi ul li {
+            list-style: none;
+            float: left;
+            width: 150px;
+            line-height: 50px;
+            /* padding: 15px; */
+            /* border: 1px solid #888; */
+            text-align: center;
+        }
+
+        .navi a:link,
+        .navi a:visited {
+            display: block;
+            font-size: 14px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .navi a:hover,
+        .navi a:focus {
+            color: #fff;
+            background-color: #000;
+        }
+
+        .navi a:active {
+            background: #ff0000;
+        }
+
+        section {
+            clear: both;
+        }
+
+        .contents {
+            width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #eee;
+        }
+
+        #intro:target,
+        #room:target,
+        #reservation:target {
+            background-color: #ff0000;
+            color: #fff;
+        }
+        /* input:checked + label {
+            color: #ff0000;
+            font-weight: bold;
+        }
+        input:not([type=radio]):hover {
+            color: #0000ff;
+        } */
+        #check input:not([type=radio]) {
+            border-color: #17beb6;
+        }
+
+        /* 가상기호 : 문서안에 특정 부분에 스타일 지정하기 위해 가상요소를 추가함 
+        > "::" (클론) 2개를 붙여서 표시 */
+        #first {
+            border: 1px dotted #000;
+            min-width: 300px;
+            max-width: 600px;
+            padding: 10px 20px;
+        }
+        #first p::first-line {
+            color: #0000ff;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        #first p::first-letter {
+            color: #887fff;
+        }
+
+        #after li.new {
+            color: #ff0000;
+            position: relative;
+        }
+        #after li.new::after {
+            content: "NEW!";
+            font-size: x-small;
+            background-color: #ff0000;
+            color: #fff;
+            border-radius: 20px;
+            margin-left: 5px;
+            padding: 2px 4px;
+            top: 2px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navi">
+            <ul>
+                <li><a href="#intro">이용 안내</a></li>
+                <li><a href="#room">객실 소개</a></li>
+                <li><a href="#reservation">에약 방법 및 요금</a></li>
+                <li><a href="formstyle01.html">예약하기</a></li>
+            </ul>
+        </nav>
+    </div>
+    <section>
+        <div id="intro" class="contents">
+            <h2>이용안내</h2>
+            <p>Id sunt dolor fugiat reprehenderit est ullamco excepteur sunt incididunt duis.</p>
+        </div>
+        <div id="room" class="contents">
+            <h2>객실소개</h2>
+            <p>Deserunt voluptate esse cupidatat adipisicing consectetur.</p>
+        </div>
+        <div id="reservation" class="contents">
+            <h2>예약 방법 및 요금</h2>
+            <p>Sunt culpa nulla laborum reprehenderit reprehenderit dolore minim.</p>
+        </div>
+    </section>
+    <!-- ul>li*2input[type=radio]+label -->
+    <div id="after">
+        <h3>제품 목록</h3>
+        <hr>
+        <ul>
+            <li class="new">제품1</li>
+            <li>제품2</li>
+            <li>제품3</li>
+            <li class="new">제품4</li>
+        </ul>
+    </div>
+    <div id="first">
+        <p>Non eiusmod elit consectetur do.<br> Ad minim exercitation laboris enim pariatur cillum aute. Proident labore laboris velit qui commodo laboris deserunt fugiat officia. Ad qui in in tempor sit occaecat commodo cupidatat fugiat cillum sunt in commodo non. Dolor enim ex eu laboris magna nisi laborum sit cupidatat nostrud non ad eu. Qui anim velit reprehenderit anim.</p>
+    </div>
+    <div id="check">
+        <fieldset>
+            <legend>객실 형태</legend>
+            <ul>
+                <li><input type="radio" name="room" id="basic">
+                    <label for="basic">
+                        기본형(최대2인)
+                    </label>
+                </li>
+                <li><input type="radio" name="room" id="family">
+                    <label for="family">
+                        가족형(최대8인)
+                    </label>
+                </li>
+                <li>
+                    <input type="text">
+                </li>
+            </ul>
+        </fieldset>
+    </div>
+</body>
+
+</html>

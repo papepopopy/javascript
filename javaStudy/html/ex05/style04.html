@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글꼴 관련 스타일</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* 크기 단위 
+        : %, em, px, rem ... */
+
+        /* 텍스트 배치
+        start, end, left, center, right, justify 등 */
+
+        /* 공간분활
+        block : 줄단위 공간, width, height 속성이 있음
+        inline : 열단위 공간, width, height 속성이 없음 */
+
+        /* 텍스트 그림자
+        text-shadow: x, y, color */
+        
+        /* 대소문자
+        text-transform: uppercase, lowercase, capitalize; */
+
+        /* 자간
+        letter-spacing */
+
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+        #fontsize p:nth-child(1) {
+            font-style: normal;
+            font-weight: normal;
+            color: red;
+            font-family: 'Black han Sans', sans-serif;
+        }
+
+        #fontsize p:nth-child(2) {
+            /* font-size: 100%; */
+            font-size: 1.0em;
+            /* font-style: italic; */
+            font-weight: bold;
+            color: rgb(255, 0, 0);
+            font-family: "Noto Sans", sans-serif;
+        }
+
+        #fontsize p:nth-child(3) {
+            /* font-size: 150%; */
+            font-size: 1.5em;
+            font-style: oblique;
+            font-weight: bolder;
+            color: #ff0000;
+            color: rgba(255, 0, 0, 0.4);
+        }
+
+        #fontsize p:nth-child(4) {
+            /* font-size: 200%; */
+            /* font-size: 2.0em; */
+            font-size: 32px;
+            font-weight: 600
+                /* 100~900 */
+            ;
+            background-color: #fff000;
+            text-align: center;
+        }
+
+        #box p {
+            width: 300px;
+            height: 100px;
+            border: 1px solid #333;
+            background-color: #eee;
+            text-align: center;
+            line-height: 100px;
+            text-decoration: underline #31ff9f 2px;
+            text-decoration: overline #31ff9f 2px;
+            text-decoration: none;
+            text-transform: lowercase;
+        }
+        #box a {text-decoration: none; font-size: 50px; color: purple; font-family: 'Black han Sans', sans-serif; line-height: 100px; display: block;}
+        #box a {
+            text-shadow: 10px 10px 10px #790f67e5;
+        }
+        #box i {
+            width: 300px;
+            height: 100px;
+            border: 1px solid #ff0000;
+            text-transform: uppercase;
+            text-transform: capitalize;
+            letter-spacing: -0.05em;
+        }
+        
+        table {
+            width: 500px; 
+            /* border-collapse: collapse; */
+            border: 1px solid #ccc;
+        }
+        table, tr, td, th {
+            border: 1px dashed #ff0000;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>선물용 상품 구성</caption>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </table>
+    <div id="box">
+        <p>HTML5/CSS</p>
+        <i>Id eu nulla commodo amet sunt Lorem nostrud sit tempor aute deserunt.</i><br>
+        <a href="http://www.naver.com">네이버</a>
+    </div>
+    <div id="fontsize">
+        <p>Cillum eu incididunt dolore do ullamco enim do nisi ex incididunt exercitation elit.</p>
+        <p>Cillum eu incididunt dolore do ullamco enim do nisi ex incididunt exercitation elit.</p>
+        <p>Cillum eu incididunt dolore do ullamco enim do nisi ex incididunt exercitation elit.</p>
+        <p>Cillum eu incididunt dolore do ullamco enim do nisi ex incididunt exercitation elit.</p>
+    </div>
+</body>
+
+</html>
