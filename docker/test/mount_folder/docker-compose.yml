@@ -1,0 +1,44 @@
+version: '3'  # Docker Compose 파일 버전
+
+services:
+  mysql_compose_ex1:  # MySQL 서비스 정의
+    image: mysql:5.7  # 사용할 MySQL 이미지
+    networks:
+      - compose_net2  # 사용할 네트워크
+    volumes:
+      - mysql_vol:/var/lib/mysql  # MySQL 데이터를 저장할 볼륨
+    restart: always  # 항상 재시작 설정
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234  # MySQL root 비밀번호
+      MYSQL_DATABASE: mydb  # 생성할 데이터베이스 이름
+      MYSQL_USER: user1  # 생성할 사용자 이름
+      MYSQL_PASSWORD: 1234  # 사용자의 비밀번호
+
+  wordpress_compose:  # WordPress 서비스 정의
+    depends_on:  # MySQL 서비스가 시작된 후에 WordPress 시작
+      - mysql_compose_ex1
+    image: wordpress  # 사용할 WordPress 이미지
+    networks:
+      - compose_net2  # 사용할 네트워크
+    volumes:
+      - wordpress_vol:/var/www/html  # WordPress 데이터를 저장할 볼륨
+    ports:
+      -8085:80
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: mysql_compose_ex1
+      WORDPRESS_DB_NAME: mydb
+      WORDPRESS_DB_PASSWORD: 1234
+      
+networks:
+  compose_net2: {}  # 네트워크 정의
+
+volumes:
+  mysql_vol: {}  # MySQL 볼륨 정의
+  wordpress_vol: {}  # WordPress 볼륨 정의
+
+# docker run --name wordpress_ex1 --net=wordpress_net1 -dit -p 8095:80 -e WORDPRESS_DB_HOST=mysql_ex1 -e WORD
+# PRESS_DB_NAME=mydb -e WORDPRESS_DB_USER=user -e WORDPRESS_DB_PASSWORD=1234 wordpress
+
+# docker run --name mysql_ex1 -dit --net=wordpress_net1 -e MYSQL_ROOT_PASSWORD=1234 mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+# docker run --name mysql_ex1 -dit --net=wordpress_net1 -p 8085:3306 -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=mydb -e MYSQL_USER=user -e MYSQL_PASSWORD=1234 mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci

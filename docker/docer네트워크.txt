@@ -1,0 +1,36 @@
+docker run --name wordpress_ex1 --net=wordpress_net1 -dit -p 8095:80 -e WORDPRESS_DB_HOST=mysql_ex1 -e WORD
+PRESS_DB_NAME=mydb -e WORDPRESS_DB_USER=user -e WORDPRESS_DB_PASSWORD=1234 wordpress
+
+docker run --name mysql_ex1 -dit --net=wordpress_net1 -e MUSQL_ROOT_PASSWORD=1234 mysql:5 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+docker run --name mysql_ex1 -dit --net=wordpress_net1 -p 8085:3306 -e MYSQL_ROOT_PASSWORD=1234 -e MYSQK_DATABASE=mydb -e MYSQK_USER=user -e MYSQL_PASSWORD=1234 mysql:5--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+
+//오타 수정
+docker run --name wordpress_ex1 --net=wordpress_net1 -dit -p 8095:80
+  -e WORDPRESS_DB_HOST=mysql_ex1
+  -e WORDPRESS_DB_NAME=mydb
+  -e WORDPRESS_DB_USER=user
+  -e WORDPRESS_DB_PASSWORD=1234
+  wordpress
+
+//
+
+docker run --name mysql_ex1 -dit --net=wordpress_net1
+  -e MYSQL_ROOT_PASSWORD=1234
+  mysql:5 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+
+//
+
+docker run --name mysql_ex1 -dit --net=wordpress_net1 -p 8085:3306
+  -e MYSQL_ROOT_PASSWORD=1234
+  -e MYSQL_DATABASE=mydb
+  -e MYSQL_USER=user
+  -e MYSQL_PASSWORD=1234
+  mysql:5 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+//db만 추가
+docker run -it -d  --name mysql_ex2 -e MYSQL_ROOT_PASS=1234 -p 8086:3306 mysql
+
+docker exec -it mysql_ex2 bash
