@@ -1,0 +1,19 @@
+.footer {
+    background-color: #F0F0F0;
+    color: #fff;
+    padding: 20px 0 100px 0;
+}
+.footer-inof .text {
+    padding: 30px 0 40px;
+}
+.footer-inof {
+    color: #888888;
+}
+.footer-inof ul {
+    display: flex;
+    gap: 20px;
+}
+.footer-inof ul li:first-child a {
+    color: #003964;
+    font-weight: 600;
+}

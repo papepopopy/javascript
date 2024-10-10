@@ -1,0 +1,28 @@
+src/assets/: 이미지, 스타일 시트 등 정적 자산을 저장하는 폴더
+
+images/: 이미지 파일들을 저장
+styles/: 스타일 시트 파일들을 저장
+src/components/: 재사용 가능한 컴포넌트를 저장하는 폴더
+
+common/: Header, Footer, Sidebar 등 공통 컴포넌트를 저장
+Header.js: 헤더 컴포넌트
+Footer.js: 푸터 컴포넌트
+Sidebar.js: 사이드바 컴포넌트 (필요 시)
+src/pages/: 페이지 컴포넌트를 저장하는 폴더
+
+User/: 사용자용 페이지 컴포넌트를 저장
+
+MainPage.js: 메인 페이지 컴포넌트
+LoginPage.js: 로그인 페이지 컴포넌트
+BookSearchPage.js: 도서 검색 페이지 컴포넌트
+ReadingRoomReservationPage.js: 열람실 예약 페이지 컴포넌트
+BoardPage.js: 게시판 페이지 컴포넌트
+LibraryIntroductionPage.js: 도서관 소개 페이지 컴포넌트
+MyPage.js: 마이페이지 컴포넌트
+Admin/: 관리자용 페이지 컴포넌트를 저장
+
+MemberManagementPage.js: 회원 관리 페이지 컴포넌트
+BookManagementPage.js: 도서자료 관리 페이지 컴포넌트
+ReservationManagementPage.js: 예약 관리 페이지 컴포넌트
+BookStatusPage.js: 도서 현황 관리 페이지 컴포넌트
+BoardManagementPage.js: 게시판 관리 페이지 컴포넌트
